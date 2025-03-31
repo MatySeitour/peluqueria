@@ -4,3 +4,21 @@
   font-family: "Merriweather", sans-serif;
   font-optical-sizing: auto;
 }
+
+.btn-gradient {
+  background: linear-gradient(to bottom right, #64748b, #1e293b);
+  background-size: 200%;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-gradient:hover {
+  background-position: right bottom;
+}
+
+.animation-delay-300 {
+  animation-delay: 500;
+}
+
+:root:has(.no-doc-scroll) {
+  overflow: hidden;
+}

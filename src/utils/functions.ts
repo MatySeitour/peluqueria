@@ -1,19 +1,50 @@
 import clsx from "clsx";
 import { ClassValue } from "clsx";
+import { useEffect, useState } from "react";
 import { IconType } from "react-icons";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa6";
 import { MdLocalPhone } from "react-icons/md";
 import { twMerge } from "tailwind-merge";
-
-export const cn = (...args: ClassValue[]) => {
-  return twMerge(clsx(...args));
-};
 
 type SocialMedia = {
   id: number;
   name: string;
   link: string;
   icon: IconType;
+};
+
+export type SMQ = "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
+
+export const mqs = {
+  xxs: 480,
+  xs: 560,
+  sm: 640,
+  md: 768,
+  lg: 1024,
+  xl: 1280,
+  xxl: 1536,
+};
+export function useMediaQueries(): number {
+  const [mq, setMq] = useState<number>();
+
+  const mqChange = () => {
+    setMq(document.body.clientWidth);
+  };
+
+  useEffect(() => {
+    setMq(document.body.clientWidth);
+    window.addEventListener("resize", mqChange);
+
+    return () => {
+      window.removeEventListener("resize", mqChange);
+    };
+  }, []);
+
+  return mq ?? 0;
+}
+
+export const cn = (...args: ClassValue[]) => {
+  return twMerge(clsx(...args));
 };
 
 export const socialMedias: SocialMedia[] = [

@@ -1,6 +1,7 @@
 import Footer from "./components/Footer";
 import { Home } from "./components/Home";
 import { Nav } from "./components/Nav";
+import PaymentMethods from "./components/PaymentMethods";
 import Service from "./components/Service";
 import "./index.css";
 
@@ -10,6 +11,7 @@ function App() {
       <Nav />
       <Home />
       <Service />
+      <PaymentMethods />
       <Footer />
     </main>
   );

@@ -6,10 +6,49 @@ import {
   appearTop,
   containerObserverAnimation,
   gridImage,
-} from "../utils/images/animations";
+} from "../utils/animations";
 import { mqs, useMediaQueries } from "../utils/functions";
 export function GridImages() {
   const mq = useMediaQueries();
+
+  const imagesGrid = [
+    {
+      alt: "Ondas",
+      className:
+        "relative col-start-1 col-end-2 row-start-1 row-end-3 overflow-hidden rounded-md md:row-end-4",
+      src: "/ondas.webp",
+    },
+    {
+      alt: "Brushin",
+      className:
+        "relative col-start-2 col-end-3 row-start-1 row-end-2 overflow-hidden rounded-md md:col-start-3 md:col-end-4 md:row-start-2 md:row-end-4 2xl:col-start-2 2xl:col-end-3 2xl:row-start-1 2xl:row-end-2",
+      src: "/brushin.webp",
+    },
+    {
+      alt: "Manicura 1",
+      className:
+        "relative col-start-2 col-end-3 row-start-2 row-end-3 overflow-hidden rounded-md md:col-start-3 md:col-end-4 md:row-start-1 md:row-end-2 2xl:row-end-2",
+      src: "/manicura.webp",
+    },
+    {
+      alt: "Peinado",
+      className:
+        "relative col-start-3 col-end-3 row-start-1 row-end-3 overflow-hidden rounded-md md:col-start-4 md:col-end-4 md:row-start-2 md:row-end-4",
+      src: "/peinado.webp",
+    },
+    {
+      alt: "Corte de hombre",
+      className:
+        "relative col-start-1 col-end-3 overflow-hidden rounded-md md:col-start-2 md:col-end-3 md:row-start-1 md:row-end-4 2xl:col-end-4 2xl:row-start-2",
+      src: "/corte_hombre.webp",
+    },
+    {
+      alt: "Manicura 2",
+      className:
+        "relative col-start-3 col-end-4 row-start-3 row-end-4 overflow-hidden rounded-md md:col-start-4 md:col-end-5 md:row-start-1",
+      src: "/manicura_2.webp",
+    },
+  ];
 
   return (
     <section className="relative flex h-full w-full flex-col gap-10 overflow-hidden bg-white bg-gradient-to-br py-16 sm:px-6 lg:px-8 xl:gap-14">
@@ -37,7 +76,7 @@ export function GridImages() {
           </motion.h4>
         </div>
 
-        <motion.div
+        <motion.ul
           initial="offscreen"
           whileInView="onscreen"
           viewport={{
@@ -47,102 +86,25 @@ export function GridImages() {
           }}
           className="grid h-full max-h-[26rem] w-full grid-cols-3 grid-rows-3 gap-2 md:grid-cols-4 md:grid-rows-3 2xl:max-h-[40rem]"
         >
-          <figure className="relative col-start-1 col-end-2 row-start-1 row-end-3 overflow-hidden rounded-md md:row-end-4">
-            <motion.img
-              variants={appear}
-              transition={{ delay: 0.6, duration: 0.2 }}
-              className="h-full w-full rounded-md object-cover"
-              src="../../public/ondas.webp"
-            />
-            <motion.div
-              variants={gridImage}
-              transition={{
-                translateX: { duration: 0.2, ease: "linear", delay: 0.3 },
-              }}
-              className="absolute top-0 left-0 h-full w-full rounded-md bg-pink-300"
-            />
-          </figure>
-
-          <figure className="relative col-start-2 col-end-3 row-start-1 row-end-2 overflow-hidden rounded-md md:col-start-3 md:col-end-4 md:row-start-2 md:row-end-4 2xl:col-start-2 2xl:col-end-3 2xl:row-start-1 2xl:row-end-2">
-            <motion.img
-              variants={appear}
-              transition={{ delay: 0.6, duration: 0.2 }}
-              className="h-full w-full rounded-md object-cover"
-              src="../../public/brushin.webp"
-            />
-            <motion.div
-              variants={gridImage}
-              transition={{
-                translateX: { duration: 0.2, ease: "linear", delay: 0.3 },
-              }}
-              className="absolute top-0 left-0 h-full w-full rounded-md bg-pink-300"
-            />
-          </figure>
-
-          <figure className="relative col-start-2 col-end-3 row-start-2 row-end-3 overflow-hidden rounded-md md:col-start-3 md:col-end-4 md:row-start-1 md:row-end-2 2xl:row-end-2">
-            <motion.img
-              variants={appear}
-              transition={{ delay: 0.6, duration: 0.2 }}
-              className="h-full w-full rounded-md object-cover"
-              src="../../public/manicura.webp"
-            />
-            <motion.div
-              variants={gridImage}
-              transition={{
-                translateX: { duration: 0.2, ease: "linear", delay: 0.3 },
-              }}
-              className="absolute top-0 left-0 h-full w-full rounded-md bg-pink-300"
-            />
-          </figure>
-
-          <figure className="relative col-start-3 col-end-3 row-start-1 row-end-3 overflow-hidden rounded-md md:col-start-4 md:col-end-4 md:row-start-2 md:row-end-4">
-            <motion.img
-              variants={appear}
-              transition={{ delay: 0.6, duration: 0.2 }}
-              className="h-full w-full rounded-md object-cover"
-              src="../../public/peinado.webp"
-            />
-            <motion.div
-              variants={gridImage}
-              transition={{
-                translateX: { duration: 0.2, ease: "linear", delay: 0.3 },
-              }}
-              className="bg-esmerald-400 absolute top-0 left-0 h-full w-full rounded-md bg-pink-300"
-            />
-          </figure>
-
-          <figure className="relative col-start-1 col-end-3 overflow-hidden rounded-md md:col-start-2 md:col-end-3 md:row-start-1 md:row-end-4 2xl:col-end-4 2xl:row-start-2">
-            <motion.img
-              variants={appear}
-              transition={{ delay: 0.6, duration: 0.2 }}
-              className="h-full w-full rounded-md object-cover"
-              src="../../public/corte_hombre.webp"
-            />
-            <motion.div
-              variants={gridImage}
-              transition={{
-                translateX: { duration: 0.2, ease: "linear", delay: 0.3 },
-              }}
-              className="absolute top-0 left-0 h-full w-full rounded-md bg-pink-300"
-            />
-          </figure>
-
-          <figure className="relative col-start-3 col-end-4 row-start-3 row-end-4 overflow-hidden rounded-md md:col-start-4 md:col-end-5 md:row-start-1">
-            <motion.img
-              variants={appear}
-              transition={{ delay: 0.6, duration: 0.2 }}
-              className="h-full w-full rounded-md object-cover"
-              src="../../public/manicura_2.webp"
-            />
-            <motion.div
-              variants={gridImage}
-              transition={{
-                translateX: { duration: 0.2, ease: "linear", delay: 0.3 },
-              }}
-              className="absolute top-0 left-0 h-full w-full rounded-md bg-pink-300"
-            />
-          </figure>
-        </motion.div>
+          {imagesGrid?.map((image) => (
+            <li key={image?.src} className={`${image?.className}`}>
+              <motion.img
+                alt={image?.alt}
+                variants={appear}
+                transition={{ delay: 0.6, duration: 0.2 }}
+                className="h-full w-full rounded-md object-cover"
+                src={image?.src}
+              />
+              <motion.div
+                variants={gridImage}
+                transition={{
+                  translateX: { duration: 0.2, ease: "linear", delay: 0.3 },
+                }}
+                className="absolute top-0 left-0 h-full w-full rounded-md bg-pink-300"
+              />
+            </li>
+          ))}
+        </motion.ul>
       </motion.article>
 
       {/* Request a turn */}

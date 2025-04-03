@@ -4,12 +4,9 @@ import { FaCcVisa, FaInstagram, FaMoneyBills } from "react-icons/fa6";
 import { MdDiscount } from "react-icons/md";
 import { SiMercadopago } from "react-icons/si";
 import { mqs, useMediaQueries } from "../utils/functions";
-import {
-  appearTop,
-  containerObserverAnimation,
-} from "../utils/images/animations";
 import { BiSolidOffer } from "react-icons/bi";
 import { BsCalendar4Week } from "react-icons/bs";
+import { appearTop, containerObserverAnimation } from "../utils/animations";
 
 export default function PaymentMethods() {
   const paymentMethods = [

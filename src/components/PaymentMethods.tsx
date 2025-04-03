@@ -4,6 +4,10 @@ import { FaCcVisa, FaInstagram, FaMoneyBills } from "react-icons/fa6";
 import { MdDiscount } from "react-icons/md";
 import { SiMercadopago } from "react-icons/si";
 import { mqs, useMediaQueries } from "../utils/functions";
+import {
+  appearTop,
+  containerObserverAnimation,
+} from "../utils/images/animations";
 
 export default function PaymentMethods() {
   const paymentMethods = [
@@ -33,27 +37,6 @@ export default function PaymentMethods() {
 
   const mq = useMediaQueries();
 
-  const containerObserverAnimation = {
-    offscreen: {},
-    onscreen: {
-      transition: {
-        duration: 0.5,
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const appear = {
-    offscreen: {
-      opacity: 0,
-      y: 20,
-    },
-    onscreen: {
-      opacity: 1,
-      y: 0,
-    },
-  };
-
   return (
     <section className="mx-auto flex h-auto w-full max-w-7xl flex-col gap-10 px-4 py-16 sm:px-6 lg:px-8 xl:gap-14">
       {/* Payment methods article */}
@@ -66,13 +49,13 @@ export default function PaymentMethods() {
       >
         <div className="text flex h-auto w-full flex-col gap-2">
           <motion.h4
-            variants={appear}
+            variants={appearTop}
             className="text-center text-4xl font-bold text-pretty text-slate-800 md:text-left"
           >
             Paga de la manera más facil
           </motion.h4>
           <motion.p
-            variants={appear}
+            variants={appearTop}
             className="text-center font-semibold text-slate-500 md:text-left"
           >
             Te brindamos las siguientes formas de pago
@@ -82,7 +65,7 @@ export default function PaymentMethods() {
           <ul className="grid w-full grid-cols-1 place-items-center gap-8 py-8 min-[1070px]:!grid-cols-4 min-[1070px]:grid-rows-1 min-[1070px]:gap-16 sm:py-14 md:grid-cols-2">
             {paymentMethods.map((method) => (
               <motion.li
-                variants={appear}
+                variants={appearTop}
                 key={method?.name}
                 className="text flex w-full flex-col items-center gap-4 rounded-md p-4 px-6"
               >
@@ -112,21 +95,21 @@ export default function PaymentMethods() {
         <div className="flex flex-col items-center gap-4">
           <div className="flex flex-col items-center gap-2">
             <motion.div
-              variants={appear}
+              variants={appearTop}
               className="flex w-fit items-center gap-2 rounded-full bg-slate-200 px-3.5 py-1.5 text-slate-600 sm:px-4 sm:py-2"
             >
               <MdDiscount className="size-3 min-w-3 sm:size-4 sm:min-w-4" />
               <p className="text-xs font-semibold">Promos y descuentos</p>
             </motion.div>
             <motion.h4
-              variants={appear}
+              variants={appearTop}
               className="text-center text-3xl font-bold text-pretty text-slate-800"
             >
               ¡No te pierdas ninguna oferta!
             </motion.h4>
           </div>
           <motion.p
-            variants={appear}
+            variants={appearTop}
             className="text-center font-medium text-slate-500"
           >
             Seguínos en Instagram para estar al tanto de descuentos y
@@ -135,7 +118,7 @@ export default function PaymentMethods() {
         </div>
 
         <motion.div
-          variants={appear}
+          variants={appearTop}
           className="btn-gradient relative flex cursor-pointer items-center gap-2 rounded-full px-4 py-2 shadow-2xl !transition-none"
         >
           <a

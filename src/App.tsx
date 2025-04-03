@@ -1,4 +1,5 @@
 import Footer from "./components/Footer";
+import { GridImages } from "./components/GridImages";
 import { Home } from "./components/Home";
 import { Nav } from "./components/Nav";
 import PaymentMethods from "./components/PaymentMethods";
@@ -12,6 +13,7 @@ function App() {
       <Home />
       <Service />
       <PaymentMethods />
+      <GridImages />
       <Footer />
     </main>
   );

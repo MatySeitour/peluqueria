@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { cn, navItems } from "../utils/functions";
+import { cn, mqs, navItems, useMediaQueries } from "../utils/functions";
 import { AnimatePresence } from "motion/react";
 import { motion } from "motion/react";
 import { SocialMedia } from "./SocialMedia";
@@ -11,6 +11,8 @@ import { BsCalendar4Week } from "react-icons/bs";
 export function Nav() {
   const [navDesktopEffect, setNavDesktopEffect] = useState(false);
   const [isNavOpen, setIsNavOpen] = useState(false);
+
+  const mq = useMediaQueries();
 
   useEffect(() => {
     const onScroll = () => {
@@ -45,6 +47,7 @@ export function Nav() {
       className={cn(
         "border-primary fixed left-0 z-50 flex h-16 w-full items-center justify-between border-b px-6 transition-all",
         navDesktopEffect ? "bg-third top-0" : "-top-full",
+        mq < mqs.sm && "top-0 border-none",
       )}
     >
       <figure className="relative flex h-full w-16 items-center">
@@ -70,25 +73,25 @@ export function Nav() {
               className="relative z-[50] flex h-4 w-12 items-center justify-center transition-all"
             >
               <div
-                className={
-                  !isNavOpen
-                    ? "bg-primary absolute top-0 left-3 h-0.5 w-6 rounded-full transition-all"
-                    : "bg-primary absolute top-0 left-3 h-0.5 w-6 rotate-[49deg] rounded-full transition-all"
-                }
-              ></div>
+                className={cn(
+                  "bg-primary absolute top-0 left-3 h-0.5 w-6 rounded-full transition-all",
+                  isNavOpen && "rotate-[49deg]",
+                  mq < mqs.sm && !navDesktopEffect && "bg-white",
+                )}
+              />
               <div
-                className={
-                  !isNavOpen
-                    ? "bg-primary absolute top-1/2 left-3 h-0.5 w-6 -translate-y-1/2 rounded-full transition-all"
-                    : "bg-primary absolute top-1/2 left-3 hidden h-0.5 w-6 rounded-full transition-all"
-                }
-              ></div>
+                className={cn(
+                  "bg-primary absolute top-1/2 left-3 h-0.5 w-6 -translate-y-1/2 rounded-full transition-all",
+                  isNavOpen && "hidden",
+                  mq < mqs.sm && !navDesktopEffect && "bg-white",
+                )}
+              />
               <div
-                className={
-                  !isNavOpen
-                    ? "bg-primary absolute bottom-0 left-3 h-0.5 w-6 rounded-full transition-all"
-                    : "bg-primary absolute top-0 left-3 h-0.5 w-6 -rotate-[49deg] rounded-full transition-all"
-                }
+                className={cn(
+                  "bg-primary absolute bottom-0 left-3 h-0.5 w-6 rounded-full transition-all",
+                  isNavOpen && "top-0 -rotate-[49deg] transition-all",
+                  mq < mqs.sm && !navDesktopEffect && "bg-white",
+                )}
               ></div>
             </button>
           </div>

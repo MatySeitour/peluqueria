@@ -3,31 +3,16 @@ import { cn, socialMedias } from "../utils/functions";
 
 export function SocialMedia() {
   return (
-    <motion.ul
-      initial="hidden"
-      animate="visible"
-      variants={{
-        hidden: { opacity: 0, scale: 0.8 },
-        visible: {
-          opacity: 1,
-          scale: 1,
-          transition: { staggerChildren: 0.2 },
-        },
-      }}
-      className="flex items-center gap-2"
-    >
+    <ul className="flex items-center gap-2">
       {socialMedias.map((socialMedia) => (
         <motion.li
-          variants={{
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: { duration: 0.1 },
-            },
+          initial={{ opacity: 0 }}
+          animate={{
+            opacity: 1,
+            transition: { delay: 0.8 },
           }}
-          whileHover="hovered"
           className={cn(
-            "btn-gradient group group relative flex w-9 cursor-pointer items-center gap-2 rounded-full p-2 shadow-2xl transition-all",
+            "bg-primary group group relative flex w-9 cursor-pointer items-center gap-2 rounded-full p-2 shadow-2xl transition-all",
             socialMedia?.id === 3 && "hover:!w-36",
           )}
           key={socialMedia?.id}
@@ -47,6 +32,6 @@ export function SocialMedia() {
           </a>
         </motion.li>
       ))}
-    </motion.ul>
+    </ul>
   );
 }

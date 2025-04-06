@@ -8,7 +8,7 @@ import "./index.css";
 
 function App() {
   return (
-    <main className="h-full w-full bg-slate-100">
+    <main className="bg-third/40 h-full w-full">
       <Nav />
       <Home />
       <Service />

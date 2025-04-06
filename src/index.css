@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary: #7d726a;
+  --color-secondary: #d6cfc3;
+  --color-third: #e8e5de;
+}
+
 .text {
   font-family: "Merriweather", sans-serif;
   font-optical-sizing: auto;
@@ -21,4 +27,30 @@
 
 :root:has(.no-doc-scroll) {
   overflow: hidden;
+}
+
+.background-home-1 {
+  background-image: url("/public//pos_1.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.background-home-2 {
+  background-image: url("/public//pos_2.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.background-home-3 {
+  background-image: url("/public//pos_3.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-home-desktop {
+  background-position: top center;
+}
+
+.bg-home-mobile {
+  background-position: center center;
 }

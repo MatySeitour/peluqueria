@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
-import { cn } from "../utils/functions";
-import { GoHome } from "react-icons/go";
-import { PiHairDryerLight } from "react-icons/pi";
-import { IoCardOutline } from "react-icons/io5";
-import { FiPhone } from "react-icons/fi";
-import { LiaMapMarkerAltSolid } from "react-icons/lia";
+import { cn, navItems } from "../utils/functions";
 import { AnimatePresence } from "motion/react";
 import { motion } from "motion/react";
 import { SocialMedia } from "./SocialMedia";
+import { IoCalendarClearOutline } from "react-icons/io5";
+import { FaRegClock } from "react-icons/fa6";
+import { MdLocalOffer } from "react-icons/md";
+import { BsCalendar4Week } from "react-icons/bs";
 
 export function Nav() {
   const [navDesktopEffect, setNavDesktopEffect] = useState(false);
@@ -15,7 +14,7 @@ export function Nav() {
 
   useEffect(() => {
     const onScroll = () => {
-      const newScroll = window.scrollY > 40;
+      const newScroll = window.scrollY > 350;
       return navDesktopEffect !== newScroll && setNavDesktopEffect(newScroll);
     };
 
@@ -23,60 +22,40 @@ export function Nav() {
     return () => document.removeEventListener(`scroll`, onScroll);
   }, [navDesktopEffect]);
 
-  const navItems = [
-    {
-      id: 1,
-      name: "Home",
-      href: "#",
-      icon: GoHome,
+  const containerNavAnimation = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.1,
+      },
     },
-    {
-      id: 2,
-      name: "Servicios",
-      href: "#Services",
-      icon: PiHairDryerLight,
+  };
+
+  const navItemAnimation = {
+    hidden: {
+      opacity: 0,
     },
-    {
-      id: 3,
-      name: "Medios de pago",
-      href: "#",
-      icon: IoCardOutline,
+    visible: {
+      opacity: 1,
     },
-    {
-      id: 4,
-      name: "Contacto",
-      href: "#",
-      icon: FiPhone,
-    },
-    {
-      id: 5,
-      name: "Donde encontrarnos",
-      href: "#",
-      icon: LiaMapMarkerAltSolid,
-    },
-  ];
+  };
 
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 z-50 flex h-16 w-full items-center justify-between border-b border-transparent px-6 transition-all",
-        navDesktopEffect
-          ? "border-slate-300 bg-slate-100/70 backdrop-blur-md"
-          : "bg-transparent",
+        "border-primary fixed left-0 z-50 flex h-16 w-full items-center justify-between border-b px-6 transition-all",
+        navDesktopEffect ? "bg-third top-0" : "-top-full",
       )}
     >
-      <figure className="h-8 w-10">
-        <img
-          src="../../public/logo_peluqueria-removebg-preview.png"
-          className="object-cover"
-        />
+      <figure className="relative flex h-full w-16 items-center">
+        <img src="/logo_negro.png" className="object-cover" />
       </figure>
       <nav className="z-10 h-full w-full max-w-2xl">
         <ul className="hidden h-full w-full items-center justify-between min-[880px]:flex">
           {navItems?.map((navItem) => (
             <li
               className={cn(
-                "relative cursor-pointer p-1 pb-1.5 font-medium text-slate-700 transition-all after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:transition-all hover:text-pink-500 hover:after:bg-pink-500",
+                "hover:after:bg-primary text-primary relative cursor-pointer p-1 pb-1.5 font-medium transition-all after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:transition-all",
               )}
               key={navItem?.id}
             >
@@ -93,22 +72,22 @@ export function Nav() {
               <div
                 className={
                   !isNavOpen
-                    ? "absolute top-0 left-3 h-0.5 w-6 rounded-full bg-slate-800 transition-all"
-                    : "absolute top-0 left-3 h-0.5 w-6 rotate-[49deg] rounded-full bg-white transition-all"
+                    ? "bg-primary absolute top-0 left-3 h-0.5 w-6 rounded-full transition-all"
+                    : "bg-primary absolute top-0 left-3 h-0.5 w-6 rotate-[49deg] rounded-full transition-all"
                 }
               ></div>
               <div
                 className={
                   !isNavOpen
-                    ? "absolute top-1/2 left-3 h-0.5 w-6 -translate-y-1/2 rounded-full bg-slate-800 transition-all"
-                    : "absolute top-1/2 left-3 hidden h-0.5 w-6 rounded-full bg-slate-800 transition-all"
+                    ? "bg-primary absolute top-1/2 left-3 h-0.5 w-6 -translate-y-1/2 rounded-full transition-all"
+                    : "bg-primary absolute top-1/2 left-3 hidden h-0.5 w-6 rounded-full transition-all"
                 }
               ></div>
               <div
                 className={
                   !isNavOpen
-                    ? "absolute bottom-0 left-3 h-0.5 w-6 rounded-full bg-slate-800 transition-all"
-                    : "absolute top-0 left-3 h-0.5 w-6 -rotate-[49deg] rounded-full bg-white transition-all"
+                    ? "bg-primary absolute bottom-0 left-3 h-0.5 w-6 rounded-full transition-all"
+                    : "bg-primary absolute top-0 left-3 h-0.5 w-6 -rotate-[49deg] rounded-full transition-all"
                 }
               ></div>
             </button>
@@ -119,45 +98,99 @@ export function Nav() {
             <div className="no-doc-scroll fixed top-0 left-0 h-[100dvh] w-[100dvw] overflow-hidden bg-black/30">
               <motion.article
                 initial={{
-                  x: 600,
-                  transition: { ease: "linear", duration: 0.2 },
+                  x: "100%",
+                  transition: { ease: "circOut", duration: 0.2 },
                 }}
-                animate={{ x: 0, transition: { ease: "linear" } }}
-                exit={{ x: 600, transition: { ease: "linear", duration: 0.2 } }}
-                className="absolute top-0 right-0 z-10 flex h-full w-3/4 flex-col justify-between overflow-auto bg-gradient-to-br from-slate-700 to-slate-900 px-4 pt-16 pb-4 backdrop-blur-lg"
+                animate={{ x: 0, transition: { ease: "circOut" } }}
+                exit={{
+                  x: "100%",
+                  transition: { ease: "circOut", duration: 0.2 },
+                }}
+                className="bg-secondary absolute top-0 right-0 z-10 flex h-full w-screen flex-col overflow-auto pb-4 backdrop-blur-lg"
               >
-                <ul className="flex h-auto w-full flex-col gap-4">
+                <figure className="relative flex h-20 w-20 items-center">
+                  <img src="/logo_nav.webp" className="object-cover" />
+                </figure>
+                <motion.ul
+                  variants={containerNavAnimation}
+                  initial="hidden"
+                  animate="visible"
+                  className="border-primary flex h-auto w-full flex-col gap-2 border-t border-b px-4 py-8"
+                >
                   {navItems?.map((navItem) => (
-                    <li
-                      className="flex items-center gap-3 p-2 font-medium text-slate-400 transition-all hover:text-white"
+                    <motion.li
+                      variants={navItemAnimation}
+                      className="text-primary flex h-12 w-fit cursor-pointer items-center gap-3 py-2 font-medium transition-all hover:text-white"
                       key={navItem?.id}
                     >
                       <navItem.icon className="size-5 min-w-5" />
                       {navItem?.name}
-                    </li>
-                  ))}
-                </ul>
-                <div className="flex h-12 w-full justify-start">
-                  {/* <ul className="flex items-center gap-2">
-                    {socialMedias.map((socialMedia) => (
-                      <li
-                        className={cn(
-                          "btn-gradient group group relative flex w-9 cursor-pointer items-center gap-2 rounded-full p-2 text-lg shadow-2xl transition-all",
-                          socialMedia?.id === 3 && "hover:!w-36",
-                        )}
-                        key={socialMedia?.id}
-                      >
-                        <socialMedia.icon className="size-5 min-w-5 text-white" />
-
-                        {socialMedia?.id === 3 && (
-                          <p className="invisible absolute left-1/2 z-10 -translate-x-1/2 pl-4 text-xs font-medium text-nowrap text-white opacity-0 group-hover:visible group-hover:opacity-100 group-hover:transition-all group-hover:delay-300">
-                            +54 11 2721-0827
+                      {navItem?.id === 2 && (
+                        <div className="bg-primary/20 border-primary flex h-full w-fit items-center gap-1 rounded-full px-2 py-1.5">
+                          <MdLocalOffer className="text-primary size-4 min-w-4" />
+                          <p className="text-primary text-xs text-nowrap">
+                            15% desc en efectivo/transferencia
                           </p>
-                        )}
-                      </li>
-                    ))}
-                  </ul> */}
-                  <SocialMedia />
+                        </div>
+                      )}
+                    </motion.li>
+                  ))}
+                </motion.ul>
+                <div className="flex h-full w-full flex-col">
+                  <div className="h-full w-full">
+                    <div className="border-primary flex w-full items-center border-b px-4 py-6">
+                      <motion.div
+                        variants={containerNavAnimation}
+                        initial="hidden"
+                        animate="visible"
+                        className="flex flex-col items-start justify-center gap-4 min-[880px]:justify-start"
+                      >
+                        <motion.div
+                          variants={{
+                            hidden: { opacity: 0, transition: { delay: 0.5 } },
+                            visible: { opacity: 1, transition: { delay: 0.5 } },
+                          }}
+                          className="flex w-auto items-center gap-3 font-medium"
+                        >
+                          <IoCalendarClearOutline className="text-primary 2xl:size-6 2xl:min-w-6" />
+                          <p className="text-primary 2xl:text-lg">
+                            Lunes a Sábados
+                          </p>
+                        </motion.div>
+
+                        <motion.div
+                          variants={{
+                            hidden: { opacity: 0, transition: { delay: 0.5 } },
+                            visible: { opacity: 1, transition: { delay: 0.6 } },
+                          }}
+                          className="flex w-auto items-center gap-3 font-medium"
+                        >
+                          <FaRegClock className="text-primary 2xl:size-6 2xl:min-w-6" />
+                          <p className="text-primary 2xl:text-lg">
+                            9:30 a.m - 19:00 p.m
+                          </p>
+                        </motion.div>
+                      </motion.div>
+                    </div>
+                  </div>
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{
+                      opacity: 1,
+                      transition: { delay: 0.8 },
+                    }}
+                    className="flex h-12 w-full justify-between px-4"
+                  >
+                    <SocialMedia />
+                    <a
+                      target="_blank"
+                      href="https://api.whatsapp.com/send?phone=541127210827&text=hola%F0%9F%91%8B%20quiero%20solicitar%20un%20turno!%20"
+                      className="bg-primary transition-al flex w-fit min-w-36 cursor-pointer items-center justify-center gap-2 rounded-full px-4 py-1 text-xs font-medium text-nowrap text-white"
+                    >
+                      <BsCalendar4Week className="size-4 min-w-4 text-white" />
+                      Solicitar turno
+                    </a>
+                  </motion.div>
                 </div>
               </motion.article>
             </div>

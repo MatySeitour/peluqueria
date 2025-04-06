@@ -24,14 +24,14 @@ export function GridImages() {
         <div className="text flex h-auto w-full flex-col items-center justify-center gap-2">
           <motion.div
             variants={appearTop}
-            className="flex w-fit items-center gap-2 rounded-full bg-slate-200 px-3.5 py-1.5 text-slate-600 sm:px-4 sm:py-2"
+            className="text-primary bg-secondary/60 flex w-fit items-center gap-2 rounded-full px-3.5 py-1.5 sm:px-4 sm:py-2"
           >
             <BsStars className="size-4 min-w-4 sm:size-4 sm:min-w-4" />
             <p className="text-xs font-semibold">Belleza y elegancia</p>
           </motion.div>
           <motion.h4
             variants={appearTop}
-            className="text-center text-4xl font-bold text-pretty text-slate-800"
+            className="text-primary text-center text-4xl font-bold text-pretty"
           >
             Trabajamos para resaltar tu belleza
           </motion.h4>
@@ -157,84 +157,84 @@ export function GridImages() {
           <div className="flex items-center gap-8">
             <div className="hidden flex-col items-center gap-2 md:flex">
               <div className="flex gap-2">
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
-                <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
-                <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
+                <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
+                <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
               </div>
               <div className="flex gap-2">
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
-                <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
-                <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
+                <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
+                <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
               </div>
               <div className="flex gap-2">
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
-                <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
-                <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
+                <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
+                <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
               </div>
             </div>
             <motion.h4
               variants={appearTop}
-              className="px-2 text-center text-3xl font-bold text-pretty text-slate-800"
+              className="text-primary px-2 text-center text-3xl font-bold text-pretty"
             >
               No pierdas tiempo ¡Reserva tu turno!
             </motion.h4>
             <div className="hidden flex-col items-center gap-2 md:flex">
               <div className="flex gap-2">
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
-                <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
-                <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
+                <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
+                <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
               </div>
               <div className="flex gap-2">
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
-                <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
-                <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
+                <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
+                <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
               </div>
               <div className="flex gap-2">
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-                <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
-                <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
-                <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+                <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
+                <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
+                <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
               </div>
             </div>
           </div>
           <motion.p
             variants={appear}
-            className="text-center font-medium text-slate-500"
+            className="text-primary/70 text-center font-medium"
           >
             Envianos un mensaje para más información
           </motion.p>
@@ -244,42 +244,42 @@ export function GridImages() {
         <div className="flex items-center gap-10">
           <div className="flex flex-col items-center gap-2 md:hidden">
             <div className="flex gap-2">
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
-              <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
-              <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
+              <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
+              <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
             </div>
             <div className="flex gap-2">
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
-              <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
-              <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
+              <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
+              <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
             </div>
             <div className="flex gap-2">
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
-              <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
-              <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
+              <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
+              <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
             </div>
           </div>
           <motion.div
             variants={appear}
-            className="btn-gradient relative flex cursor-pointer items-center gap-2 rounded-full px-4 py-2 shadow-2xl !transition-none"
+            className="bg-primary relative flex cursor-pointer items-center gap-2 rounded-full px-4 py-2 shadow-2xl !transition-none"
           >
             <a
               className="relative flex w-full items-center gap-2"
@@ -294,37 +294,37 @@ export function GridImages() {
           </motion.div>
           <div className="flex flex-col items-center gap-2 md:hidden">
             <div className="flex gap-2">
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
-              <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
-              <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
+              <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
+              <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
             </div>
             <div className="flex gap-2">
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
-              <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
-              <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
+              <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
+              <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
             </div>
             <div className="flex gap-2">
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="h-1 w-1 rounded-sm bg-slate-600/20" />
-              <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
-              <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
-              <div className="hidden h-1 w-1 rounded-sm bg-slate-600/20 md:inline-block" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 h-1 w-1 rounded-sm" />
+              <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
+              <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
+              <div className="bg-primary/20 hidden h-1 w-1 rounded-sm md:inline-block" />
             </div>
           </div>
         </div>

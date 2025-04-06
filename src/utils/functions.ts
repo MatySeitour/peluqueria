@@ -3,7 +3,12 @@ import { ClassValue } from "clsx";
 import { useEffect, useState } from "react";
 import { IconType } from "react-icons";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa6";
+import { FiPhone } from "react-icons/fi";
+import { GoHome } from "react-icons/go";
+import { IoCardOutline } from "react-icons/io5";
+import { LiaMapMarkerAltSolid } from "react-icons/lia";
 import { MdLocalPhone } from "react-icons/md";
+import { PiHairDryerLight } from "react-icons/pi";
 import { twMerge } from "tailwind-merge";
 
 type SocialMedia = {
@@ -65,5 +70,38 @@ export const socialMedias: SocialMedia[] = [
     name: "Teléfono",
     link: "tel:+541127210827",
     icon: MdLocalPhone,
+  },
+];
+
+export const navItems = [
+  {
+    id: 1,
+    name: "Home",
+    href: "#",
+    icon: GoHome,
+  },
+  {
+    id: 2,
+    name: "Servicios",
+    href: "#Services",
+    icon: PiHairDryerLight,
+  },
+  {
+    id: 3,
+    name: "Medios de pago",
+    href: "#",
+    icon: IoCardOutline,
+  },
+  {
+    id: 4,
+    name: "Contacto",
+    href: "#",
+    icon: FiPhone,
+  },
+  {
+    id: 5,
+    name: "Donde encontrarnos",
+    href: "#",
+    icon: LiaMapMarkerAltSolid,
   },
 ];

@@ -51,7 +51,7 @@ export function Home() {
         variants={containerImagesHeroAnimation}
         className="relative grid h-screen w-full overflow-hidden"
       >
-        <div className="relative z-40 flex h-full w-full flex-col items-start justify-start gap-4 p-6 pt-24 md:pl-20">
+        <div className="relative z-40 flex h-full w-full flex-col items-start justify-center gap-4 p-6 sm:justify-start sm:pt-24 md:pl-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0, transition: { delay: 0.1 } }}
@@ -66,7 +66,7 @@ export function Home() {
             variants={containerNavHeroAnimation}
             initial="hidden"
             animate="show"
-            className="text flex w-full flex-col items-center gap-2 md:w-auto md:items-start"
+            className="text hidden w-full flex-col items-center gap-2 sm:flex md:w-auto md:items-start"
           >
             {navItems?.map((navItem) => (
               <motion.li

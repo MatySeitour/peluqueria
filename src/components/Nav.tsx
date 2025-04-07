@@ -50,8 +50,14 @@ export function Nav() {
         mq < mqs.sm && "top-0 border-none",
       )}
     >
-      <figure className="relative flex h-full w-16 items-center">
-        <img src="/logo_negro.png" className="object-cover" />
+      <figure className="relative flex h-full w-20 items-center">
+        <img
+          src="/logo_negro.png"
+          className={cn(
+            "object-cover",
+            !navDesktopEffect && "brightness-200 invert filter",
+          )}
+        />
       </figure>
       <nav className="z-10 h-full w-full max-w-2xl">
         <ul className="hidden h-full w-full items-center justify-between min-[880px]:flex">
@@ -77,6 +83,7 @@ export function Nav() {
                   "bg-primary absolute top-0 left-3 h-0.5 w-6 rounded-full transition-all",
                   isNavOpen && "rotate-[49deg]",
                   mq < mqs.sm && !navDesktopEffect && "bg-white",
+                  isNavOpen && "bg-primary",
                 )}
               />
               <div
@@ -91,6 +98,7 @@ export function Nav() {
                   "bg-primary absolute bottom-0 left-3 h-0.5 w-6 rounded-full transition-all",
                   isNavOpen && "top-0 -rotate-[49deg] transition-all",
                   mq < mqs.sm && !navDesktopEffect && "bg-white",
+                  isNavOpen && "bg-primary",
                 )}
               ></div>
             </button>

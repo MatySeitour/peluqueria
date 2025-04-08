@@ -43,7 +43,10 @@ export function Home() {
   };
 
   return (
-    <section className="relative flex h-full w-full flex-col items-center justify-center gap-4 bg-black">
+    <section
+      id="home"
+      className="relative flex h-full w-full flex-col items-center justify-center gap-4 bg-black"
+    >
       <div className="absolute top-0 left-0 z-40 h-full w-full bg-black/50" />
       <motion.div
         initial="hidden"
@@ -74,9 +77,11 @@ export function Home() {
                 key={navItem?.id}
                 className={cn("cursor-pointer", navItem?.id === 1 && "hidden")}
               >
-                <p className="font-light text-white transition-all hover:translate-x-2 hover:font-medium hover:text-white md:text-white/70">
-                  {navItem?.name}
-                </p>
+                <a href={`#${navItem?.href}`}>
+                  <p className="font-light text-white transition-all hover:translate-x-2 hover:font-medium hover:text-white md:text-white/70">
+                    {navItem?.name}
+                  </p>
+                </a>
               </motion.li>
             ))}
           </motion.ul>

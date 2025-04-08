@@ -6,9 +6,19 @@
   --color-third: #e8e5de;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding: 0rem;
+}
+
 .text {
   font-family: "Merriweather", sans-serif;
   font-optical-sizing: auto;
+}
+
+.banner {
+  background: linear-gradient(180deg, #a0f2, #a0f4, #a0f4, #a0f2);
+  filter: blur(100px);
 }
 
 .btn-gradient {

@@ -241,7 +241,7 @@ export function GridImages() {
           </div>
           <motion.div
             variants={appear}
-            className="bg-primary relative flex cursor-pointer items-center gap-2 rounded-full px-4 py-2 shadow-2xl !transition-none"
+            className="bg-primary hover:bg-primary/90 relative flex cursor-pointer items-center gap-2 rounded-full px-4 py-2 shadow-2xl transition-colors !transition-none"
           >
             <a
               className="relative flex w-full items-center gap-2"

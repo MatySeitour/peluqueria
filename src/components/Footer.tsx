@@ -1,31 +1,93 @@
-import {
-    Scissors,
-  } from "lucide-react"
-
-import { BsCalendar4Week } from "react-icons/bs";
+import { FaMapMarkerAlt } from "react-icons/fa";
+import { FaRegClock } from "react-icons/fa6";
+import { IoCalendarClearOutline } from "react-icons/io5";
+import { navItems, socialMedias } from "../utils/functions";
+import { MdLocalOffer } from "react-icons/md";
 
 export default function Footer() {
-    return (
-        <section className="bg-black py-16 text-white">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
-              <div className="max-w-2xl">
-                <h2 className="text-3xl font-bold">Lista para un nuevo Look?</h2>
-                <p className="mt-4 text-gray-300">
-                  Nuestro equipo de estilistas expertos está listo para ayudarte a lograr el estilo perfecto. Reserva tu cita hoy.
-                </p>
-              </div>
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <button className="flex items-center rounded-md bg-white px-4 py-2 text-black transition-colors hover:bg-gray-200">
-                  <BsCalendar4Week className="mr-2 h-4 w-4" />
-                  Solicitar Turno
-                </button>
-                <button className="flex items-center rounded-md border border-white bg-transparent px-4 py-2 text-white transition-colors hover:bg-white hover:text-black">
-                  <Scissors className="mr-2 h-4 w-4" />
-                  Ver mas Servicios
-                </button>
-              </div>
+  return (
+    <footer className="relative flex h-auto flex-col items-center gap-10 overflow-hidden bg-gradient-to-b from-black/90 via-black to-black p-6 text-white lg:flex-row lg:gap-4">
+      <span className="banner absolute right-1/2 -bottom-12 h-28 w-52 translate-x-16 !bg-gradient-to-r !from-transparent !to-white sm:top-0 sm:bottom-0 sm:w-28" />
+      {/* Footer title and logo */}
+      <div className="relative z-20 flex h-full w-full flex-col justify-between gap-10">
+        <div className="flex flex-col justify-between gap-4">
+          <div className="flex flex-col items-center gap-2 lg:items-start">
+            <div className="flex items-center gap-2">
+              <figure className="relative flex h-16 w-16 items-center">
+                <img
+                  src="/logo_negro.png"
+                  className="object-cover brightness-200 invert filter"
+                />
+              </figure>
+              <p className="text text-4xl">STAFF MODERN</p>
+            </div>
+            <div className="w-full">
+              <ul className="flex w-full items-center justify-center gap-4 lg:justify-start">
+                {socialMedias?.map((socialMedia) => (
+                  <li
+                    key={socialMedia?.id}
+                    className="flex cursor-pointer items-center justify-between rounded-full bg-white px-4 py-2 text-black transition-colors hover:bg-white/90"
+                  >
+                    <a
+                      target="_blank"
+                      className="flex gap-1"
+                      href={socialMedia?.link}
+                    >
+                      <socialMedia.icon className="size-4 min-w-4 text-black" />
+                      <p className="text-xs font-medium">{socialMedia?.name}</p>
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
-        </section>) 
-    }
+        </div>
+        <p className="hidden text-xs text-slate-100/40 lg:flex">
+          © {new Date().getFullYear()} StaffModern. Todos los derechos
+          reservados.
+        </p>
+      </div>
+      {/* Footer navigation and info */}
+      <div className="relative z-20 flex h-full w-full flex-col justify-center gap-4">
+        <div className="flex flex-col items-center gap-10 sm:flex-row">
+          <ul className="flex h-full w-full flex-col items-center justify-center gap-2 sm:items-start sm:border-r sm:pr-10 sm:pb-0 lg:items-end">
+            {navItems?.map((navItem) => (
+              <li
+                key={navItem?.id}
+                className="cursor-pointer text-right font-medium text-white transition-colors hover:text-slate-100/70"
+              >
+                <a href={`#${navItem?.href}`} className="text-nowrap">
+                  {navItem?.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div className="flex w-full flex-col items-center gap-4">
+            <div className="flex w-auto items-center gap-3 font-medium text-white">
+              <IoCalendarClearOutline className="" />
+              <p className="text-sm">Lunes a Sábados</p>
+            </div>
+            <div className="flex w-auto items-center gap-3 font-medium text-white">
+              <FaRegClock className="size-4 min-w-4" />
+              <p className="text-sm">9:30 a.m - 19:00 p.m</p>
+            </div>
+            <div className="flex items-center gap-3 text-white">
+              <FaMapMarkerAlt className="size-5 min-w-5" />
+              <p className="text-sm text-nowrap">
+                Los Cipreses 02 - Estación Pilará
+              </p>
+            </div>
+            <div className="flex h-8 w-fit items-center justify-center gap-2 rounded-full bg-slate-800 px-4 text-white">
+              <MdLocalOffer className="text-white" />
+              <p className="text-xs">15% en efectivo/transferencia</p>
+            </div>
+            <div className="inline-block w-full p-2 text-center text-xs text-white/70 sm:hidden">
+              © {new Date().getFullYear()} StaffModern. Todos los derechos
+              reservados.
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}

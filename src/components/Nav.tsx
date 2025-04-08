@@ -11,6 +11,7 @@ import { BsCalendar4Week } from "react-icons/bs";
 export function Nav() {
   const [navDesktopEffect, setNavDesktopEffect] = useState(false);
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   const mq = useMediaQueries();
 
@@ -23,6 +24,26 @@ export function Nav() {
     document.addEventListener(`scroll`, onScroll);
     return () => document.removeEventListener(`scroll`, onScroll);
   }, [navDesktopEffect]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.5 },
+    );
+
+    navItems.forEach((navItem) => {
+      const section = document.getElementById(navItem?.href);
+      if (section) observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   const containerNavAnimation = {
     hidden: {},
@@ -42,6 +63,8 @@ export function Nav() {
     },
   };
 
+  const closeNavMobile = () => setIsNavOpen(false);
+
   return (
     <header
       className={cn(
@@ -50,7 +73,7 @@ export function Nav() {
         mq < mqs.sm && "top-0 border-none",
       )}
     >
-      <figure className="relative flex h-full w-20 items-center">
+      <figure className="relative flex h-full w-16 items-center pt-2">
         <img
           src="/logo_negro.png"
           className={cn(
@@ -65,10 +88,11 @@ export function Nav() {
             <li
               className={cn(
                 "hover:after:bg-primary text-primary relative cursor-pointer p-1 pb-1.5 font-medium transition-all after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:transition-all",
+                activeSection === navItem?.href && "after:bg-primary",
               )}
               key={navItem?.id}
             >
-              {navItem?.name}
+              <a href={`#${navItem?.href}`}>{navItem?.name}</a>
             </li>
           ))}
         </ul>
@@ -80,8 +104,8 @@ export function Nav() {
             >
               <div
                 className={cn(
-                  "bg-primary absolute top-0 left-3 h-0.5 w-6 rounded-full transition-all",
-                  isNavOpen && "rotate-[49deg]",
+                  "bg-primary absolute top-0.5 left-3 h-0.5 w-6 rounded-full transition-all",
+                  isNavOpen && "top-0 rotate-[49deg]",
                   mq < mqs.sm && !navDesktopEffect && "bg-white",
                   isNavOpen && "bg-primary",
                 )}
@@ -131,19 +155,28 @@ export function Nav() {
                   {navItems?.map((navItem) => (
                     <motion.li
                       variants={navItemAnimation}
-                      className="text-primary flex h-12 w-fit cursor-pointer items-center gap-3 py-2 font-medium transition-all hover:text-white"
+                      className="text-primary hover:text-primary/70 h-12 w-fit cursor-pointer py-2 font-medium transition-all"
                       key={navItem?.id}
                     >
-                      <navItem.icon className="size-5 min-w-5" />
-                      {navItem?.name}
-                      {navItem?.id === 2 && (
-                        <div className="bg-primary/20 border-primary flex h-full w-fit items-center gap-1 rounded-full px-2 py-1.5">
-                          <MdLocalOffer className="text-primary size-4 min-w-4" />
-                          <p className="text-primary text-xs text-nowrap">
-                            15% desc en efectivo/transferencia
-                          </p>
-                        </div>
-                      )}
+                      <a
+                        onClick={closeNavMobile}
+                        className="flex h-full items-center gap-3"
+                        href={`#${navItem?.href}`}
+                      >
+                        {activeSection === navItem?.href && (
+                          <span className="bg-primary h-full w-1" />
+                        )}
+                        <navItem.icon className="size-5 min-w-5" />
+                        {navItem?.name}
+                        {navItem?.id === 2 && (
+                          <div className="bg-primary/20 border-primary flex h-full w-fit items-center gap-1 rounded-full px-2 py-1.5">
+                            <MdLocalOffer className="text-primary size-4 min-w-4" />
+                            <p className="text-primary text-xs text-nowrap">
+                              15% desc en efectivo/transferencia
+                            </p>
+                          </div>
+                        )}
+                      </a>
                     </motion.li>
                   ))}
                 </motion.ul>

@@ -36,7 +36,10 @@ export default function PaymentMethods() {
   const mq = useMediaQueries();
 
   return (
-    <section className="mx-auto flex h-auto w-full max-w-7xl flex-col gap-10 px-4 py-16 sm:px-6 lg:px-8">
+    <section
+      id="metodos-de-pago"
+      className="mx-auto flex h-auto w-full max-w-7xl flex-col gap-10 px-4 py-16 sm:px-6 lg:px-8"
+    >
       {/* Payment methods article */}
       <motion.article
         initial="offscreen"
@@ -121,7 +124,7 @@ export default function PaymentMethods() {
                   <p className="text-primary text-xs">Descuento imperdible</p>
                 </div>
               </div>
-              <div className="flex flex-col justify-center gap-0.5 text-lg sm:items-start md:items-center">
+              <div className="flex flex-col justify-center gap-0.5 text-lg sm:items-start">
                 <p className="text-primary font-semibold">
                   Descuento en efectivo/transferencia
                 </p>
@@ -135,7 +138,7 @@ export default function PaymentMethods() {
               <a
                 target="_blank"
                 href="https://api.whatsapp.com/send?phone=541127210827&text=hola%F0%9F%91%8B%20quiero%20solicitar%20un%20turno!%20"
-                className="bg-primary transition-al flex w-full min-w-36 cursor-pointer items-center justify-center gap-2 rounded-full px-4 py-2 text-xs font-medium text-nowrap text-white md:w-fit"
+                className="bg-primary hover:bg-primary/90 flex w-full min-w-36 cursor-pointer items-center justify-center gap-2 rounded-full px-4 py-2 text-xs font-medium text-nowrap text-white transition-colors md:w-fit"
               >
                 <BsCalendar4Week className="size-4 min-w-4 text-white" />
                 Solicitar turno
@@ -153,7 +156,7 @@ export default function PaymentMethods() {
 
         <motion.div
           variants={appearTop}
-          className="bg-primary relative flex cursor-pointer items-center gap-2 rounded-full px-4 py-2 shadow-2xl !transition-none"
+          className="bg-primary hover:bg-primary/90 relative flex cursor-pointer items-center gap-2 rounded-full px-4 py-2 shadow-2xl transition-colors !transition-none"
         >
           <a
             className="relative flex w-full items-center gap-2"

@@ -1,17 +1,23 @@
 import { useState, ReactNode } from "react"
 
-interface ServiceCategoryProps {
-  title: string
-  children?: ReactNode 
+interface Service {
+  name: string
+  price: string
 }
 
-export default function ServiceCategory({ title, children }: ServiceCategoryProps) {
+interface ServiceCategoryProps {
+  title: string
+  services?: Service[] // Array de servicios con precios
+  children?: ReactNode
+}
+
+export default function ServiceCategory({ title, services, children }: ServiceCategoryProps) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="border-b border-gray-200 py-4">
+    <div className="border-b border-gray-200 py-3 sm:py-4">
       <div className="flex justify-between items-center cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
-        <h4 className="text-lg">{title}</h4>
+        <h4 className="text-base sm:text-lg">{title}</h4>
         {isOpen ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -24,8 +30,7 @@ export default function ServiceCategory({ title, children }: ServiceCategoryProp
             strokeLinecap="round"
             strokeLinejoin="round"
           >
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
           </svg>
         ) : (
           <svg
@@ -46,8 +51,18 @@ export default function ServiceCategory({ title, children }: ServiceCategoryProp
       </div>
 
       {isOpen && (
-        <div className="mt-4 pl-4">
-          {children && <div className="mt-4">{children}</div>}
+        <div className="mt-3 sm:mt-4 pl-3 sm:pl-4">
+          {services && (
+            <ul className="space-y-1 sm:space-y-2">
+              {services.map((service, index) => (
+                <li key={index} className="flex justify-between text-sm sm:text-base">
+                  <span>{service.name}</span>
+                  <span className="text-gray-500">{service.price}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+          {children && <div className="mt-3 sm:mt-4">{children}</div>}
         </div>
       )}
     </div>

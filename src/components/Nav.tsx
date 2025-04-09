@@ -15,6 +15,8 @@ export function Nav() {
 
   const mq = useMediaQueries();
 
+  const removeHashNavItemHref = (href: string) => href.split("#")[1];
+
   useEffect(() => {
     const onScroll = () => {
       const newScroll = window.scrollY > 350;
@@ -34,16 +36,20 @@ export function Nav() {
           }
         });
       },
-      { threshold: 0.5 },
+      { threshold: 0.2 },
     );
 
     navItems.forEach((navItem) => {
-      const section = document.getElementById(navItem?.href);
+      const section = document.getElementById(
+        removeHashNavItemHref(navItem?.href),
+      );
       if (section) observer.observe(section);
     });
 
     return () => observer.disconnect();
   }, []);
+
+  const closeNavMobile = () => setIsNavOpen(false);
 
   const containerNavAnimation = {
     hidden: {},
@@ -63,36 +69,45 @@ export function Nav() {
     },
   };
 
-  const closeNavMobile = () => setIsNavOpen(false);
-
   return (
     <header
       className={cn(
         "border-primary fixed left-0 z-50 flex h-16 w-full items-center justify-between border-b px-6 transition-all",
         navDesktopEffect ? "bg-third top-0" : "-top-full",
-        mq < mqs.sm && "top-0 border-none",
+        mq !== 0 && mq < mqs.sm && "top-0 border-none",
       )}
     >
-      <figure className="relative flex h-full w-16 items-center pt-2">
-        <img
-          src="/logo_negro.png"
-          className={cn(
-            "object-cover",
-            !navDesktopEffect && "brightness-200 invert filter",
-          )}
-        />
-      </figure>
+      <a
+        target="_blank"
+        href="https://www.instagram.com/staffmodernpeluquerias?igsh=MTAwcXpmcmgyaWlnZg%3D%3D"
+      >
+        <figure className="relative flex h-full w-16 items-center pt-2">
+          <img
+            src="/logo_negro.webp"
+            className={cn(
+              "object-cover",
+              !navDesktopEffect && "brightness-200 invert filter",
+            )}
+          />
+        </figure>
+      </a>
       <nav className="z-10 h-full w-full max-w-2xl">
         <ul className="hidden h-full w-full items-center justify-between min-[880px]:flex">
           {navItems?.map((navItem) => (
             <li
               className={cn(
                 "hover:after:bg-primary text-primary relative cursor-pointer p-1 pb-1.5 font-medium transition-all after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:transition-all",
-                activeSection === navItem?.href && "after:bg-primary",
+                activeSection === removeHashNavItemHref(navItem?.href) &&
+                  "after:bg-primary",
               )}
               key={navItem?.id}
             >
-              <a href={`#${navItem?.href}`}>{navItem?.name}</a>
+              <a
+                target={navItem?.id !== 5 ? "_self" : "_blank"}
+                href={`${navItem?.href}`}
+              >
+                {navItem?.name}
+              </a>
             </li>
           ))}
         </ul>
@@ -104,7 +119,7 @@ export function Nav() {
             >
               <div
                 className={cn(
-                  "bg-primary absolute top-0.5 left-3 h-0.5 w-6 rounded-full transition-all",
+                  "bg-primary absolute top-0 left-3 h-0.5 w-6 rounded-full transition-all",
                   isNavOpen && "top-0 rotate-[49deg]",
                   mq < mqs.sm && !navDesktopEffect && "bg-white",
                   isNavOpen && "bg-primary",
@@ -159,11 +174,13 @@ export function Nav() {
                       key={navItem?.id}
                     >
                       <a
+                        target={navItem?.id !== 5 ? "_self" : "_blank"}
                         onClick={closeNavMobile}
                         className="flex h-full items-center gap-3"
-                        href={`#${navItem?.href}`}
+                        href={`${navItem?.href}`}
                       >
-                        {activeSection === navItem?.href && (
+                        {activeSection ===
+                          removeHashNavItemHref(navItem?.href) && (
                           <span className="bg-primary h-full w-1" />
                         )}
                         <navItem.icon className="size-5 min-w-5" />

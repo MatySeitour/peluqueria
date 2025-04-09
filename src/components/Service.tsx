@@ -2,15 +2,14 @@ import ServiceCategory from "../components/ServiceCategory"
 
 export default function ServiciosPage() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <section 
+    className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <div className="flex flex-col md:flex-row h-[70vh]">
         {/* Left Side - Red Background with Image */}
-        <div className="relative w-full md:w-3/5 bg-red-700 h-full">
-          <div className="absolute top-6 left-6 z-10">
-            <h1 className="text-5xl font-serif italic text-white">STAFF MODERN</h1>
-          </div>
-          <img src="/placeholder.jpg" alt="PHOTO" className="w-full h-full object-cover object-center" />
+        <div className="relative w-full md:w-3/5 h-full ">
+          <img src="/services.webp" alt="PHOTO" className="w-full h-full object-cover object-center" />
+          <div className="absolute top-0 left-0 bg-black/40 h-full w-full" />
         </div>
 
         {/* Right Side - Black Background with Title */}
@@ -26,7 +25,9 @@ export default function ServiciosPage() {
       </div>
 
       {/* Services Section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 p-4 sm:p-6 md:p-8 lg:p-10">
+      <div
+      id="servicios"
+      className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 p-4 sm:p-6 md:p-8 lg:p-10 scroll-mt-24">
         {/* Left Column - Peluqueria Section */}
         <div>
           <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6">PELUQUERIA</h3>
@@ -294,7 +295,7 @@ export default function ServiciosPage() {
                 { name: "Solo Color o Solo Lifting", price: "$23000" },
               ]}
               />
-              <ServiceCategory title="COSMETOLOGIA" 
+              {/* <ServiceCategory title="COSMETOLOGIA" 
               services={[
                 { name: "Limpieza facial basica", price: "-" },
                 { name: "Limpieza facial profunda ", price: "-" },
@@ -305,7 +306,7 @@ export default function ServiciosPage() {
                 { name: "BB lips", price: "-" },
                 { name: "BB glow", price: "-" },
               ]}
-              />
+              /> */}
             </div>
           </div>
           {/* TRATAMIENTOS Section */}
@@ -333,7 +334,7 @@ export default function ServiciosPage() {
         </div>
       </div>
     </div>
-    </div>
+    </section>
   )
 }
 

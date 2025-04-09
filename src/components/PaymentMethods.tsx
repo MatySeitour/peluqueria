@@ -9,6 +9,8 @@ import { BsCalendar4Week } from "react-icons/bs";
 import { appearTop, containerObserverAnimation } from "../utils/animations";
 
 export default function PaymentMethods() {
+  const mq = useMediaQueries();
+
   const paymentMethods = [
     {
       name: "Dinero en efectivo",
@@ -33,12 +35,10 @@ export default function PaymentMethods() {
     },
   ];
 
-  const mq = useMediaQueries();
-
   return (
     <section
       id="metodos-de-pago"
-      className="mx-auto flex h-auto w-full max-w-7xl flex-col gap-10 px-4 py-16 sm:px-6 lg:px-8"
+      className="mx-auto flex h-auto w-full max-w-7xl scroll-mt-24 flex-col gap-10 px-4 py-16 sm:px-6 lg:px-8"
     >
       {/* Payment methods article */}
       <motion.article
@@ -46,7 +46,6 @@ export default function PaymentMethods() {
         whileInView="onscreen"
         viewport={{ amount: mq > mqs.sm ? 0.4 : 0.2, once: true }}
         variants={containerObserverAnimation}
-        className=""
       >
         <div className="text flex h-auto w-full flex-col gap-2">
           <motion.h4
@@ -63,7 +62,7 @@ export default function PaymentMethods() {
           </motion.p>
         </div>
         <div>
-          <ul className="grid w-full grid-cols-1 place-items-center gap-8 py-8 min-[1070px]:!grid-cols-4 min-[1070px]:grid-rows-1 min-[1070px]:gap-16 sm:py-10 md:grid-cols-2">
+          <ul className="grid w-full grid-cols-1 place-items-center gap-8 py-8 min-[1070px]:!grid-cols-4 min-[1070px]:grid-rows-1 min-[1070px]:gap-16 sm:grid-cols-2 sm:py-10">
             {paymentMethods.map((method) => (
               <motion.li
                 variants={appearTop}
@@ -114,7 +113,7 @@ export default function PaymentMethods() {
             className="bg-secondary/70 relative flex w-96 max-w-2xl flex-col items-center justify-between gap-4 rounded-md p-4 sm:h-24 sm:w-full sm:flex-row sm:gap-0 sm:rounded-full"
           >
             <div className="flex h-full w-full flex-col items-start gap-2 sm:flex-row sm:items-center sm:gap-4">
-              <div className="flex w-full items-center justify-between gap-2 md:w-auto md:justify-start">
+              <div className="flex w-full items-center justify-between gap-2 sm:w-auto md:justify-start">
                 <div className="bg-primary flex w-auto items-center justify-center rounded-md px-2 py-1 sm:h-14 sm:w-14 sm:rounded-full sm:p-2">
                   <p className="pl-1 text-white sm:text-lg">15%</p>
                   <p className="pl-1 text-white sm:hidden">OFF</p>
@@ -134,11 +133,11 @@ export default function PaymentMethods() {
                 <p></p>
               </div>
             </div>
-            <div className="flex h-full w-full items-center md:w-fit">
+            <div className="flex h-full w-full items-center sm:w-fit">
               <a
                 target="_blank"
                 href="https://api.whatsapp.com/send?phone=541127210827&text=hola%F0%9F%91%8B%20quiero%20solicitar%20un%20turno!%20"
-                className="bg-primary hover:bg-primary/90 flex w-full min-w-36 cursor-pointer items-center justify-center gap-2 rounded-full px-4 py-2 text-xs font-medium text-nowrap text-white transition-colors md:w-fit"
+                className="bg-primary hover:bg-primary/90 flex w-full min-w-36 cursor-pointer items-center justify-center gap-2 rounded-full px-4 py-2 text-xs font-medium text-nowrap text-white transition-colors sm:w-fit"
               >
                 <BsCalendar4Week className="size-4 min-w-4 text-white" />
                 Solicitar turno
@@ -156,10 +155,10 @@ export default function PaymentMethods() {
 
         <motion.div
           variants={appearTop}
-          className="bg-primary hover:bg-primary/90 relative flex cursor-pointer items-center gap-2 rounded-full px-4 py-2 shadow-2xl transition-colors !transition-none"
+          className="cursor-pointe relative !transition-none"
         >
           <a
-            className="relative flex w-full items-center gap-2"
+            className="bg-primary hover:bg-primary/90 relative flex w-full items-center gap-2 rounded-full px-4 py-2 shadow-2xl transition-colors"
             target="_blank"
             href="https://www.instagram.com/staffmodernpeluquerias?igsh=MTAwcXpmcmgyaWlnZg%3D%3D"
           >

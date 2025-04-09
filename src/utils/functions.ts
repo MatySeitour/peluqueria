@@ -77,31 +77,31 @@ export const navItems = [
   {
     id: 1,
     name: "Home",
-    href: "home",
+    href: "#home",
     icon: GoHome,
   },
   {
     id: 2,
     name: "Servicios",
-    href: "servicios",
+    href: "#servicios",
     icon: PiHairDryerLight,
   },
   {
     id: 3,
     name: "Medios de pago",
-    href: "metodos-de-pago",
+    href: "#metodos-de-pago",
     icon: IoCardOutline,
   },
   {
     id: 4,
     name: "Contacto",
-    href: "contacto",
+    href: "#contacto",
     icon: FiPhone,
   },
   {
     id: 5,
     name: "Donde encontrarnos",
-    href: "ubicacion",
+    href: "https://maps.app.goo.gl/vxQkNNbYEvREdFBi7",
     icon: LiaMapMarkerAltSolid,
   },
 ];

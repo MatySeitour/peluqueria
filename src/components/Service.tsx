@@ -2,7 +2,8 @@ import ServiceCategory from "../components/ServiceCategory"
 
 export default function ServiciosPage() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <section 
+    className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <div className="flex flex-col md:flex-row h-[70vh]">
         {/* Left Side - Red Background with Image */}
@@ -26,7 +27,9 @@ export default function ServiciosPage() {
       </div>
 
       {/* Services Section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 p-4 sm:p-6 md:p-8 lg:p-10">
+      <div
+      id="servicios"
+      className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 p-4 sm:p-6 md:p-8 lg:p-10 scroll-mt-24">
         {/* Left Column - Peluqueria Section */}
         <div>
           <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6">PELUQUERIA</h3>
@@ -333,7 +336,7 @@ export default function ServiciosPage() {
         </div>
       </div>
     </div>
-    </div>
+    </section>
   )
 }
 

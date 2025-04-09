@@ -100,7 +100,7 @@ export function GridImages() {
                 transition={{
                   translateX: { duration: 0.2, ease: "linear", delay: 0.3 },
                 }}
-                className="absolute top-0 left-0 h-full w-full rounded-md bg-pink-300"
+                className="bg-primary absolute top-0 left-0 h-full w-full rounded-md"
               />
             </li>
           ))}
@@ -241,10 +241,10 @@ export function GridImages() {
           </div>
           <motion.div
             variants={appear}
-            className="bg-primary hover:bg-primary/90 relative flex cursor-pointer items-center gap-2 rounded-full px-4 py-2 shadow-2xl transition-colors !transition-none"
+            className="relative cursor-pointer !transition-none"
           >
             <a
-              className="relative flex w-full items-center gap-2"
+              className="bg-primary hover:bg-primary/90 relative flex w-full items-center gap-2 rounded-full px-4 py-2 shadow-2xl transition-colors"
               target="_blank"
               href="https://api.whatsapp.com/send?phone=541127210827"
             >

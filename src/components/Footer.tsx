@@ -3,10 +3,14 @@ import { FaRegClock } from "react-icons/fa6";
 import { IoCalendarClearOutline } from "react-icons/io5";
 import { navItems, socialMedias } from "../utils/functions";
 import { MdLocalOffer } from "react-icons/md";
+import { IoMdOpen } from "react-icons/io";
 
 export default function Footer() {
   return (
-    <footer className="relative flex h-auto flex-col items-center gap-10 overflow-hidden bg-gradient-to-b from-black/90 via-black to-black p-6 text-white lg:flex-row lg:gap-4">
+    <footer
+      id="contacto"
+      className="relative flex h-auto flex-col items-center gap-10 overflow-hidden bg-gradient-to-b from-black/90 via-black to-black p-6 text-white lg:flex-row lg:gap-4"
+    >
       <span className="banner absolute right-1/2 -bottom-12 h-28 w-52 translate-x-16 !bg-gradient-to-r !from-transparent !to-white sm:top-0 sm:bottom-0 sm:w-28" />
       {/* Footer title and logo */}
       <div className="relative z-20 flex h-full w-full flex-col justify-between gap-10">
@@ -26,11 +30,11 @@ export default function Footer() {
                 {socialMedias?.map((socialMedia) => (
                   <li
                     key={socialMedia?.id}
-                    className="flex cursor-pointer items-center justify-between rounded-full bg-white px-4 py-2 text-black transition-colors hover:bg-white/90"
+                    className="flex cursor-pointer items-center justify-between"
                   >
                     <a
                       target="_blank"
-                      className="flex gap-1"
+                      className="flex gap-1 rounded-full bg-white px-4 py-2 text-black transition-colors hover:bg-white/90"
                       href={socialMedia?.link}
                     >
                       <socialMedia.icon className="size-4 min-w-4 text-black" />
@@ -56,13 +60,17 @@ export default function Footer() {
                 key={navItem?.id}
                 className="cursor-pointer text-right font-medium text-white transition-colors hover:text-slate-100/70"
               >
-                <a href={`#${navItem?.href}`} className="text-nowrap">
+                <a
+                  target={navItem?.id !== 5 ? "_self" : "_blank"}
+                  href={`${navItem?.href}`}
+                  className="text-nowrap"
+                >
                   {navItem?.name}
                 </a>
               </li>
             ))}
           </ul>
-          <div className="flex w-full flex-col items-center gap-4">
+          <div className="flex w-full flex-col items-center gap-4 sm:items-end">
             <div className="flex w-auto items-center gap-3 font-medium text-white">
               <IoCalendarClearOutline className="" />
               <p className="text-sm">Lunes a Sábados</p>
@@ -71,15 +79,22 @@ export default function Footer() {
               <FaRegClock className="size-4 min-w-4" />
               <p className="text-sm">9:30 a.m - 19:00 p.m</p>
             </div>
-            <div className="flex items-center gap-3 text-white">
+            <a
+              href="https://maps.app.goo.gl/vxQkNNbYEvREdFBi7"
+              target="_blank"
+              className="flex items-center gap-3 text-white hover:underline"
+            >
               <FaMapMarkerAlt className="size-5 min-w-5" />
               <p className="text-sm text-nowrap">
-                Los Cipreses 02 - Estación Pilará
+                Los Cipreses 02 - Estación Pilar
               </p>
-            </div>
+              <div className="rounded-full bg-white p-1 hover:bg-white/80">
+                <IoMdOpen className="size-4 min-w-4 text-black" />
+              </div>
+            </a>
             <div className="flex h-8 w-fit items-center justify-center gap-2 rounded-full bg-slate-800 px-4 text-white">
               <MdLocalOffer className="text-white" />
-              <p className="text-xs">15% en efectivo/transferencia</p>
+              <p className="text-xs">15% descuento en efectivo/transferencia</p>
             </div>
             <div className="inline-block w-full p-2 text-center text-xs text-white/70 sm:hidden">
               © {new Date().getFullYear()} StaffModern. Todos los derechos

@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { HashLink } from "react-router-hash-link";
+import { useLocation } from "react-router-dom";
 import { cn, mqs, navItems, useMediaQueries } from "../utils/functions";
 import { AnimatePresence } from "motion/react";
 import { motion } from "motion/react";
@@ -14,6 +16,8 @@ export function Nav() {
   const [activeSection, setActiveSection] = useState("");
 
   const mq = useMediaQueries();
+  const location = useLocation();
+  const isServiciosPage = location.pathname === "/servicios";
 
   const removeHashNavItemHref = (href: string) => href.split("#")[1];
 
@@ -51,6 +55,10 @@ export function Nav() {
 
   const closeNavMobile = () => setIsNavOpen(false);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const containerNavAnimation = {
     hidden: {},
     visible: {
@@ -73,7 +81,7 @@ export function Nav() {
     <header
       className={cn(
         "border-primary fixed left-0 z-50 flex h-16 w-full items-center justify-between border-b px-6 transition-all",
-        navDesktopEffect ? "bg-third top-0" : "-top-full",
+        isServiciosPage ? "bg-third top-0" : navDesktopEffect ? "bg-third top-0" : "-top-full",
         mq !== 0 && mq < mqs.sm && "top-0 border-none",
       )}
     >
@@ -102,12 +110,39 @@ export function Nav() {
               )}
               key={navItem?.id}
             >
-              <a
-                target={navItem?.id !== 5 ? "_self" : "_blank"}
-                href={`${navItem?.href}`}
-              >
-                {navItem?.name}
-              </a>
+              {navItem.id === 5 ? (
+                <a
+                  href={navItem.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={closeNavMobile}
+                >
+                  {navItem.name}
+                </a>
+              ) : navItem.name === "Servicios" ? (
+                <HashLink
+                  smooth
+                  to={navItem.href}
+                  onClick={() => {
+                    scrollToTop();
+                    closeNavMobile();
+                  }}
+                >
+                  {navItem.name}
+                </HashLink>
+              ) : (
+                <HashLink
+                  smooth
+                  to={
+                    isServiciosPage && navItem?.href.startsWith("#")
+                      ? `/${navItem?.href}`
+                      : navItem?.href
+                  }
+                  onClick={closeNavMobile}
+                >
+                  {navItem.name}
+                </HashLink>
+              )}
             </li>
           ))}
         </ul>
@@ -173,11 +208,11 @@ export function Nav() {
                       className="text-primary hover:text-primary/70 h-12 w-fit cursor-pointer py-2 font-medium transition-all"
                       key={navItem?.id}
                     >
-                      <a
-                        target={navItem?.id !== 5 ? "_self" : "_blank"}
+                      <HashLink
+                        smooth
+                        to={navItem?.href}
                         onClick={closeNavMobile}
                         className="flex h-full items-center gap-3"
-                        href={`${navItem?.href}`}
                       >
                         {activeSection ===
                           removeHashNavItemHref(navItem?.href) && (
@@ -193,7 +228,7 @@ export function Nav() {
                             </p>
                           </div>
                         )}
-                      </a>
+                      </HashLink>
                     </motion.li>
                   ))}
                 </motion.ul>

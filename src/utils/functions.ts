@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { ClassValue } from "clsx";
+import { i } from "motion/react-client";
 import { useEffect, useState } from "react";
 import { IconType } from "react-icons";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa6";
@@ -74,34 +75,10 @@ export const socialMedias: SocialMedia[] = [
 ];
 
 export const navItems = [
-  {
-    id: 1,
-    name: "Home",
-    href: "#home",
-    icon: GoHome,
-  },
-  {
-    id: 2,
-    name: "Servicios",
-    href: "#servicios",
-    icon: PiHairDryerLight,
-  },
-  {
-    id: 3,
-    name: "Medios de pago",
-    href: "#metodos-de-pago",
-    icon: IoCardOutline,
-  },
-  {
-    id: 4,
-    name: "Contacto",
-    href: "#contacto",
-    icon: FiPhone,
-  },
-  {
-    id: 5,
-    name: "Donde encontrarnos",
-    href: "https://maps.app.goo.gl/vxQkNNbYEvREdFBi7",
-    icon: LiaMapMarkerAltSolid,
-  },
+  { id: 1, name: "Home", href: "/#home", icon: GoHome },
+  { id: 2, name: "Servicios", href: "/servicios", icon: PiHairDryerLight },
+  { id: 3, name: "Medios de pago", href: "/#metodos-de-pago", icon: IoCardOutline },
+  { id: 4, name: "Contacto", href: "/#contacto", icon: FiPhone },
+  { id: 5, name: "Donde encontrarnos", href: "https://maps.app.goo.gl/vxQkNNbYEvREdFBi7", icon: LiaMapMarkerAltSolid },
 ];
+

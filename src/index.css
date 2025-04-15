@@ -40,19 +40,19 @@ html {
 }
 
 .background-home-1 {
-  background-image: url("/public//pos_1.webp");
+  background-image: url("/pos_1.webp");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .background-home-2 {
-  background-image: url("/public//pos_2.webp");
+  background-image: url("/pos_2.webp");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .background-home-3 {
-  background-image: url("/public//pos_3.webp");
+  background-image: url("/pos_3.webp");
   background-repeat: no-repeat;
   background-size: cover;
 }

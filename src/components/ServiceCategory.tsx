@@ -7,7 +7,7 @@ interface Service {
 
 interface ServiceCategoryProps {
   title: string
-  services?: Service[] // Array de servicios con precios
+  services?: Service[]
   children?: ReactNode
 }
 

@@ -92,10 +92,10 @@ export function Nav() {
         <figure className="relative flex h-full w-16 items-center pt-2">
           <img
             src="/logo_negro.webp"
-            className={cn(
-              "object-cover",
-              !navDesktopEffect && "brightness-200 invert filter",
-            )}
+            // className={cn(
+            //   "object-cover",
+            //   !navDesktopEffect && "brightness-200 invert filter",
+            // )}
           />
         </figure>
       </a>
@@ -194,7 +194,7 @@ export function Nav() {
                 className="bg-secondary absolute top-0 right-0 z-10 flex h-full w-screen flex-col overflow-auto pb-4 backdrop-blur-lg"
               >
                 <figure className="relative flex h-20 w-20 items-center">
-                  <img src="/logo_nav.webp" className="object-cover" />
+                  <img src="/logo2.webp" className="object-cover" />
                 </figure>
                 <motion.ul
                   variants={containerNavAnimation}

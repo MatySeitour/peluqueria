@@ -81,7 +81,11 @@ export function Nav() {
     <header
       className={cn(
         "border-primary fixed left-0 z-50 flex h-16 w-full items-center justify-between border-b px-6 transition-all",
-        isServiciosPage ? "bg-third top-0" : navDesktopEffect ? "bg-third top-0" : "-top-full",
+        isServiciosPage
+          ? "bg-third top-0"
+          : navDesktopEffect
+            ? "bg-third top-0"
+            : "-top-full",
         mq !== 0 && mq < mqs.sm && "top-0 border-none",
       )}
     >
@@ -92,10 +96,11 @@ export function Nav() {
         <figure className="relative flex h-full w-16 items-center pt-2">
           <img
             src="/logo_negro.webp"
-            className={cn(
-              "object-cover",
-              !navDesktopEffect && "brightness-200 invert filter",
-            )}
+            //
+            // className={cn(
+            //   "object-cover",
+            //   !navDesktopEffect && "brightness-200 invert filter",
+            // )}
           />
         </figure>
       </a>
@@ -194,7 +199,7 @@ export function Nav() {
                 className="bg-secondary absolute top-0 right-0 z-10 flex h-full w-screen flex-col overflow-auto pb-4 backdrop-blur-lg"
               >
                 <figure className="relative flex h-20 w-20 items-center">
-                  <img src="/logo_nav.webp" className="object-cover" />
+                  <img src="/logo2.webp" className="object-cover" />
                 </figure>
                 <motion.ul
                   variants={containerNavAnimation}

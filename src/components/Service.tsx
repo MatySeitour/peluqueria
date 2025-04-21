@@ -54,6 +54,8 @@ export default function ServiciosPage() {
                 { name: "HAIR THERAPY", price: "$23000" },
                 { name: "LOREAL", price: "$31050" },
                 { name: "KERASTASSE", price: "$41400" },
+                { name: "OLAPLEX 4 en 1", price: "$69000" },
+                { name: "KARSELL ", price: "$28750" },
               ]}
             />
             <ServiceCategory

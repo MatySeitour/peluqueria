@@ -93,7 +93,7 @@ export function Nav() {
         target="_blank"
         href="https://www.instagram.com/staffmodernpeluquerias?igsh=MTAwcXpmcmgyaWlnZg%3D%3D"
       >
-        <figure className="relative flex h-full w-16 items-center pt-2">
+        <figure className="relative flex h-full w-16 -translate-y-1 items-center pt-2">
           <img
             src="/logo_negro.webp"
             //
@@ -199,7 +199,7 @@ export function Nav() {
                 className="bg-secondary absolute top-0 right-0 z-10 flex h-full w-screen flex-col overflow-auto pb-4 backdrop-blur-lg"
               >
                 <figure className="relative flex h-20 w-20 items-center">
-                  <img src="/logo2.webp" className="object-cover" />
+                  <img src="/logo_negro.webp" className="object-cover" />
                 </figure>
                 <motion.ul
                   variants={containerNavAnimation}

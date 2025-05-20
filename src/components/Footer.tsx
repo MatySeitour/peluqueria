@@ -17,11 +17,8 @@ export default function Footer() {
         <div className="flex flex-col justify-between gap-4">
           <div className="flex flex-col items-center gap-2 lg:items-start">
             <div className="flex items-center gap-2">
-              <figure className="relative flex h-16 w-16 items-center">
-                <img
-                  src="/logo_negro.webp"
-                  className="object-cover brightness-200 invert filter"
-                />
+              <figure className="relative flex h-16 w-16 -translate-y-1 items-center">
+                <img src="/logo_negro.webp" className="object-cover" />
               </figure>
               <p className="text text-4xl">STAFF MODERN</p>
             </div>

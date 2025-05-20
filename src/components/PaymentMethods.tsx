@@ -62,6 +62,7 @@ export default function PaymentMethods() {
           </motion.p>
         </div>
         <div>
+          {/* PaymentMethods cards*/}
           <ul className="grid w-full grid-cols-1 place-items-center gap-8 py-8 min-[1070px]:!grid-cols-4 min-[1070px]:grid-rows-1 min-[1070px]:gap-16 sm:grid-cols-2 sm:py-10">
             {paymentMethods.map((method) => (
               <motion.li

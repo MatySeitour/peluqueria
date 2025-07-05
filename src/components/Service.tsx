@@ -194,40 +194,40 @@ export default function ServiciosPage() {
               <ServiceCategory
                 title="MANOS"
                 services={[
-                  { name: "Manicuria c/ esmalte tradicional", price: "$17250" },
-                  { name: "Manicuria c/esmalte semi french", price: "$26450" },
-                  { name: "Manicuria c/esmalte tradicional french", price: "$18400" },
-                  { name: "Manicuria c/ esmalte semi", price: "$23000" },
-                  { name: "Capping gel nivelacion", price: "$25300" },
-                  { name: "Capping con poligel", price: "$28750" },
-                  { name: "Soft gel por uña", price: "$8050" },
-                  { name: "Capping por uña", price: "$5750" },
-                  { name: "Cambio de esmalte tradicional", price: "$9200" },
-                  { name: "Cambio de esmalte semi", price: "$13800" },
-                  { name: "Retiro esmalte semi", price: "$10350" },
-                  { name: "Retiro capping", price: "$11500" },
-                  { name: "Manicuria hombres", price: "$17250" },
-                  { name: "Manicuria niñas", price: "$13800" },
-                  { name: "Esculpidas c/semi DESDE", price: "$40250" },
-                  { name: "Servis esculpidas", price: "$34500" },
+                  { name: "Manicuria c/ esmalte tradicional", price: "$20700" },
+                  { name: "Manicuria c/esmalte semi french", price: "$31050" },
+                  { name: "Manicuria c/esmalte tradicional french", price: "$21850" },
+                  { name: "Manicuria c/ esmalte semi", price: "$26450" },
+                  { name: "Capping gel nivelacion", price: "$29900" },
+                  { name: "Capping con poligel", price: "$33350" },
+                  { name: "Soft gel por uña", price: "$11500" },
+                  { name: "Capping por uña", price: "$6900" },
+                  { name: "Cambio de esmalte tradicional", price: "$11500" },
+                  { name: "Cambio de esmalte semi", price: "$17250" },
+                  { name: "Retiro esmalte semi", price: "$12650" },
+                  { name: "Retiro capping", price: "$13800" },
+                  { name: "Manicuria hombres", price: "$20700" },
+                  { name: "Manicuria niñas", price: "$16100" },
+                  { name: "Esculpidas c/semi DESDE", price: "$46600" },
+                  { name: "Servis esculpidas", price: "$40250" },
                   { name: "Baby boomer esculpidas", price: "--" },
                   { name: "Baby boomer capping", price: "--" },
-                  { name: "Retiro de esculpidas", price: "$17250" },
-                  { name: "Soft Gel", price: "$28750" },
-                  { name: "Esculpidas por uña", price: "$11500" },
+                  { name: "Retiro de esculpidas", price: "$20700" },
+                  { name: "Soft Gel", price: "$34500" }
                 ]}
               />
               <ServiceCategory
                 title="PIES"
                 services={[
-                  { name: "Belleza de pies c/esmalte tradicional", price: "$20700" },
-                  { name: "Belleza de pies c/esmalre semi", price: "$23000" },
-                  { name: "Pedicuria c/ esmalte tradicional", price: "$32200" },
-                  { name: "Pedicuria básica", price: "$28750" },
-                  { name: "Pedicuria c/esmalte semi", price: "$34500" },
-                  { name: "Pedicuria hombres", price: "$28750" },
-                  { name: "Belleza pies niñas", price: "$17250" },
-                  { name: "Corte de uñas", price: "$13800" },
+                  { name: "Belleza de pies c/esmalte tradicional", price: "$24150" },
+                  { name: "Belleza de pies c/esmalre semi", price: "$26450" },
+                  { name: "Pedicuria c/ esmalte tradicional", price: "$37950" },
+                  { name: "Pedicuria básica", price: "$34500" },
+                  { name: "Pedicuria c/esmalte semi", price: "$40250" },
+                  { name: "Pedicuria hombres", price: "$34500" },
+                  { name: "Belleza pies niñas", price: "$20700" },
+                  { name: "Corte de uñas", price: "$17250" },
+                  { name: "Esculpidas por uña", price: "$13800" },
                 ]}
               />
             </div>
@@ -237,76 +237,77 @@ export default function ServiciosPage() {
             <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6">DEPILACION</h3>
             <div className="space-y-2">
               <ServiceCategory
-                title="ZONAS"
+                title="HOMBRE"
                 services={[
-                  { name: "Cejas (cera/pinzita)", price: "$13800" },
-                  { name: "Orejas", price: "$10350" },
-                  { name: "Fosas", price: "$10350" },
-                  { name: "Hombros", price: "$13800" },
-                  { name: "Axilas", price: "$10350" },
-                  { name: "Pecho", price: "$17250" },
-                  { name: "Abdomen", price: "$17250" },
-                  { name: "Torso", price: "$21850" },
-                  { name: "Cintura", price: "$17250" },
-                  { name: "Espalda", price: "$21850" },
-                  { name: "Brazos", price: "$17250" },
-                  { name: "Glúteos", price: "$17250" },
-                  { name: "Pelvis completa", price: "$18400" },
-                  { name: "Piernas", price: "$21850" },
-                  { name: "Pies", price: "$10350" },
+                  { name: "Cejas (cera/pinzita)", price: "$20000" },
+                  { name: "Orejas", price: "$10000" },
+                  { name: "Fosas", price: "$10000" },
+                  { name: "Hombros", price: "$16000" },
+                  { name: "Axilas", price: "$16000" },
+                  { name: "Pecho", price: "$18000" },
+                  { name: "Abdomen", price: "$18000" },
+                  { name: "Torso", price: "$21000" },
+                  { name: "Cintura", price: "$18000" },
+                  { name: "Espalda", price: "$21000" },
+                  { name: "Brazos", price: "$20000" },
+                  { name: "Glúteos", price: "$20000" },
+                  { name: "Pelvis completa", price: "$20000" },
+                  { name: "Piernas", price: "$25000" },
+                  { name: "Pies", price: "$10000" },
                 ]}
               />
               <ServiceCategory title="MUJER">
-                <ServiceCategory
-                  title="ROSTRO"
-                  services={[
-                    { name: "Cejas (cera/pinzita)", price: "$11500" },
-                    { name: "Bozo", price: "$10350" },
-                    { name: "Patillas", price: "$10350" },
-                    { name: "Pómulo", price: "$10350" },
-                    { name: "Mentón", price: "$10350" },
-                    { name: "Nuca", price: "$10350" },
-                    { name: "Fosas", price: "$10350" },
-                    { name: "Entrecejo", price: "$10350" },
-                    { name: "Rostro compl. (no incluye cejas)", price: "$10350" },
-                  ]}
-                />
-                <ServiceCategory
-                  title="TORSO"
-                  services={[
-                    { name: "Espalda", price: "$11500" },
-                    { name: "Cintura", price: "$10350" },
-                    { name: "Abdomen", price: "$10350" },
-                    { name: "Axila", price: "$10350" },
-                    { name: "Busto", price: "$10350" },
-                    { name: "Tiras varias", price: "$10350" },
-                    { name: "Hombros", price: "$10350" },
-                  ]}
-                />
-                <ServiceCategory
-                  title="BRAZOS-PIERNAS-PELVIS"
-                  services={[
-                    { name: "Brazo completo", price: "$14950" },
-                    { name: "Medio brazo", price: "$10350" },
-                    { name: "Manos", price: "$9200" },
-                    { name: "Media pierna", price: "$13800" },
-                    { name: "Media con bikini", price: "$16100" },
-                    { name: "Media pierna con cav. profundo", price: "$17250" },
-                    { name: "Pierna entera", price: "$19550" },
-                    { name: "Pierna entera con cav", price: "$18400" },
-                    { name: "Pierna entera con cav profundo", price: "$21850" },
-                    { name: "Bikini", price: "$10350" },
-                    { name: "Bikini profundo", price: "$10350" },
-                    { name: "Pelvis completa", price: "$12350" },
-                    { name: "Muslo", price: "$12350" },
-                    { name: "Muslo con bikini", price: "$13800" },
-                    { name: "Muslo con bikini profundo", price: "$16100" },
-                    { name: "Tira de cola", price: "$10350" },
-                    { name: "Glúteos", price: "$10350" },
-                    { name: "Tira de glúteos", price: "$10350" },
-                    { name: "Pies", price: "$10350" },
-                  ]}
-                />
+                  <ServiceCategory title="ROSTRO"
+                    services={[
+                      { name: "Cejas (cera/pinzita)", price: "$17250" },
+                      { name: "Bozo", price: "$11500" },
+                      { name: "Patillas", price: "$11500" },
+                      { name: "Pómulo", price: "$11500" },
+                      { name: "Mentón", price: "$11500" },
+                      { name: "Nuca", price: "$11500" },
+                      { name: "Fosas", price: "$11500" },
+                      { name: "Entrecejo", price: "$11500" },
+                      { name: "Rostro compl. (no incluye cejas)", price: "$21850" },
+                    ]}
+                  />
+
+                  <ServiceCategory
+                    title="TORSO"
+                    services={[
+                      { name: "Espalda", price: "$12650" },
+                      { name: "Cintura", price: "$11500" },
+                      { name: "Abdomen", price: "$12650" },
+                      { name: "Axila", price: "$11500" },
+                      { name: "Busto", price: "$11500" },
+                      { name: "Tiras varias", price: "$11500" },
+                      { name: "Hombros", price: "$11500" },
+                    ]}
+                  />
+
+                  <ServiceCategory
+                    title="BRAZOS-PIERNAS-PELVIS"
+                    services={[
+                      { name: "Brazo completo", price: "$16100" },
+                      { name: "Medio brazo", price: "$11500" },
+                      { name: "Manos", price: "$11500" },
+                      { name: "Media pierna", price: "$17250" },
+                      { name: "Media con bikini", price: "$18400" },
+                      { name: "Media pierna con cav. profundo", price: "$19550" },
+                      { name: "Pierna entera", price: "$21850" },
+                      { name: "Pierna entera con cav", price: "$21850" },
+                      { name: "Pierna entera con cav profundo", price: "$24150" },
+                      { name: "Bikini", price: "$10350" },
+                      { name: "Bikini profundo", price: "$11500" },
+                      { name: "Pelvis completa", price: "$13800" },
+                      { name: "Muslo", price: "$16100" },
+                      { name: "Muslo con bikini", price: "$18400" },
+                      { name: "Muslo con bikini profundo", price: "$19550" },
+                      { name: "Tira de cola", price: "$11500" },
+                      { name: "Glúteos", price: "$14950" },
+                      { name: "Tira de glúteos", price: "$11500" },
+                      { name: "Pies", price: "$10350" },
+                    ]}
+                  />
               </ServiceCategory>
             </div>
           </div>
@@ -319,18 +320,29 @@ export default function ServiciosPage() {
               <ServiceCategory
                 title="CEJAS"
                 services={[
-                  { name: "Disaño personalizado", price: "$17250" },
-                  { name: "Depilación (cera, pinzita)", price: "$11500" },
-                  { name: "Perfilado / Laminado", price: "$23000" },
-                  { name: "Perfilado / Diseño / Color", price: "$28750" },
+                  { name: "Disaño personalizado", price: "$23000" },
+                  { name: "Depilación (cera, pinzita)", price: "$17250" },
+                  { name: "Perfilado / Laminado", price: "$28750" },
+                  { name: "Perfilado / Diseño / Color", price: "$34500" },
                 ]}
               />
               <ServiceCategory
                 title="PESTAÑAS"
                 services={[
-                  { name: "Lifting + Color (Con perfilado cejas)", price: "$40250" },
-                  { name: "Color + Botox", price: "$28750" },
-                  { name: "Solo Color o Solo Lifting", price: "$23000" },
+                  { name: "Lifting + Color (Con perfilado cejas)", price: "$46000" },
+                  { name: "Color + Botox", price: "$34500" },
+                  { name: "Solo Color o Solo Lifting", price: "$28750" },
+                ]}
+              />
+              <ServiceCategory
+                title="COSMETOLOGIA"
+                services={[
+                  { name: "Limpieza facial basica", price: "--" },
+                  { name: "Limpieza facial profunda", price: "--" },
+                  { name: "Masaje facial", price: "--" },
+                  { name: "Masaje corporal", price: "--" },
+                  { name: "Masaje relajante", price: "--" },
+                  { name: "Masaje descontracturante", price: "--" },
                 ]}
               />
             </div>
@@ -342,20 +354,20 @@ export default function ServiciosPage() {
             <ServiceCategory
               title="TRATAMIENTOS"
               services={[
-                { name: "Pedicuria básica", price: "$28750" },
-                { name: "Básica micosis", price: "$31050" },
-                { name: "Fresado profundo de uñas micóticas", price: "$39100" },
-                { name: "Onicofosis y helomas interdigitales", price: "$39100" },
-                { name: "Hiperqueratosis generalizada", price: "$29900" },
-                { name: "Uña encarnada básica", price: "$29900" },
-                { name: "Uña encarnada unilateral granuloma", price: "$48300" },
-                { name: "Uña encarnada bilateral granuloma", price: "$64400" },
-                { name: "Encarrilado con teflón / PAE / tapa acrílica", price: "$29900" },
-                { name: "Carrilla inmovilizadora o puente PAE", price: "$29900" },
-                { name: "Lengüeta expansora", price: "$29900" },
-                { name: "Implantes temporarios o sellados antimicótico", price: "$29900" },
-                { name: "Tratamiento verrugas c/u", price: "$23000" },
-                { name: "Sesión alta frecuencia", price: "$23000" },
+                { name: "Pedicuria básica", price: "$34500" },
+                { name: "Básica micosis", price: "$36800" },
+                { name: "Fresado profundo de uñas micóticas", price: "$44850" },
+                { name: "Onicofosis y helomas interdigitales", price: "$44850" },
+                { name: "Hiperqueratosis generalizada", price: "$34500" },
+                { name: "Uña encarnada básica", price: "$34500" },
+                { name: "Uña encarnada unilateral granuloma", price: "$55800" },
+                { name: "Uña encarnada bilateral granuloma", price: "$74200" },
+                { name: "Encarrilado con teflón / PAE / tapa acrílica", price: "$34500" },
+                { name: "Carrilla inmovilizadora o puente PAE", price: "$34500" },
+                { name: "Lengüeta expansora", price: "$34500" },
+                { name: "Implantes temporarios o sellados antimicótico", price: "$34500" },
+                { name: "Tratamiento verrugas c/u", price: "$26450" },
+                { name: "Sesión alta frecuencia", price: "$26450" }
               ]}
             />
           </div>

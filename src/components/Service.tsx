@@ -42,84 +42,91 @@ export default function ServiciosPage() {
             <ServiceCategory
               title="LAVADO"
               services={[
-                { name: "COMÚN", price: "$9200" },
-                { name: "LOREAL", price: "$18400" },
-                { name: "KERASTASSE", price: "$27600" },
-                { name: "CON MASAJES", price: "$17250" },
+                { name: "COMÚN", price: "$11500" },
+                { name: "LOREAL", price: "$23000" },
+                { name: "KERASTASSE", price: "$32500" },
+                { name: "Aplicacion (shampoo/acondicionador/baño de crema)", price: "$13800" },
+                { name: "CON MASAJES", price: "$21000" },
               ]}
             />
             <ServiceCategory
               title="NUTRICIONES"
               services={[
-                { name: "HAIR THERAPY", price: "$23000" },
-                { name: "LOREAL", price: "$31050" },
-                { name: "KERASTASSE", price: "$41400" },
-                { name: "OLAPLEX 4 en 1", price: "$69000" },
-                { name: "KARSELL ", price: "$28750" },
+                { name: "LOREAL (todos)", price: "$34500" },
+                { name: "KARSELL ", price: "$32500" },
+                { name: "KERASTASSE (todos)", price: "$46000" }
+              ]}
+            />
+            <ServiceCategory
+              title="TRATAMIENTOS"
+              services={[
+                { name: "Olaplex 4 en 1", price: "$69000" },
+                { name: "Olaplex professional", price: "$11300" },
+                { name: "LOREAL Bio Molecular", price: "$74750" },
               ]}
             />
             <ServiceCategory
               title="AMPOLLAS"
               services={[
-                { name: "ALFAPARF", price: "$25300" },
-                { name: "LOREAL", price: "$28750" },
-                { name: "KERASTASSE", price: "-" },
+                { name: "ALFAPARF", price: "$28750" },
+                { name: "LOREAL", price: "$34500" },
+                { name: "KERASTASSE", price: "$42550" },
               ]}
             />
             <ServiceCategory
               title="KERATINA"
               services={[
-                { name: "CORTO/MEDIO (hombros)", price: "$55200" },
-                { name: "LARGO", price: "$64400" },
+                { name: "CORTO/MEDIO (hombros)", price: "$74750" },
+                { name: "LARGO", price: "$97750" },
               ]}
             />
             <ServiceCategory
               title="ALISADOS"
               services={[
-                { name: "CORTO/MEDIO (hombros)", price: "$80500" },
-                { name: "LARGO", price: "$138000" },
-                { name: " FEQUILLO/CONTORNO", price: "$47150" },
+                { name: "CORTO/MEDIO (hombros)", price: "$97750" },
+                { name: "LARGO", price: "$155500" },
+                { name: " FEQUILLO/CONTORNO", price: "$63300" },
               ]}
             />
             <ServiceCategory
               title="BOTOX"
               services={[
-                { name: "CORTO/MEDIO (hombros)", price: "$53250" },
+                { name: "CORTO/MEDIO (hombros)", price: "$74750" },
                 { name: "LARGO", price: "$97750" },
               ]}
             />
             <ServiceCategory
               title="CORTES"
               services={[
-                { name: "DAMA", price: "$20700" },
-                { name: "CABALLEROS", price: "$20700" },
-                { name: "NIÑO HASTA 12 AÑOS", price: "$18400" },
-                { name: "BARBA", price: "$18400" },
-                { name: "CORTE + BARBA", price: "$28750" },
-                { name: "FLEQUILLO", price: "$13800" },
+                { name: "DAMA", price: "$25300" },
+                { name: "CABALLEROS", price: "$25300" },
+                { name: "NIÑO HASTA 12 AÑOS", price: "$23000" },
+                { name: "BARBA", price: "$23000" },
+                { name: "CORTE + BARBA", price: "$34500" },
+                { name: "FLEQUILLO", price: "$172500" },
               ]}
             />
             <ServiceCategory
               title="BRUSHING"
               services={[
-                { name: "CORTO/MEDIO (hombros)", price: "$17250" },
-                { name: "LARGO", price: "$24150" },
-                { name: "MAS PLANCHITA CORTO/MEDIO", price: "$23000" },
-                { name: "MAS PLANCHITA LARGO", price: "$29900" },
+                { name: "CORTO/MEDIO (hombros)", price: "$20700" },
+                { name: "LARGO", price: "$27600" },
+                { name: "MAS PLANCHITA CORTO/MEDIO", price: "$25300" },
+                { name: "MAS PLANCHITA LARGO", price: "$31050" },
               ]}
             />
             <ServiceCategory
               title="SECADO MODELADO"
               services={[
-                { name: "CORTO/MEDIO (hombros)", price: "$10350" },
-                { name: "LARGO", price: "$14950" },
+                { name: "CORTO/MEDIO (hombros)", price: "$12350" },
+                { name: "LARGO", price: "$17250" },
               ]}
             />
             <ServiceCategory
               title="ONDAS"
               services={[
-                { name: "CORTO/MEDIO (hombros)", price: "$31050" },
-                { name: "LARGO", price: "$40250" },
+                { name: "CORTO/MEDIO (hombros)", price: "$40250" },
+                { name: "LARGO", price: "$49450" },
               ]}
             />
             <ServiceCategory
@@ -127,60 +134,67 @@ export default function ServiciosPage() {
               services={[
                 { name: "HASTA 2", price: "$0" },
                 { name: "MAS DE 2", price: "$0" },
-                { name: "PEINADOS/RECOGIDOS DESDE", price: "$46000" },
+                { name: "PEINADOS/RECOGIDOS DESDE", price: "$55200" },
               ]}
             />
             <ServiceCategory title="COLORACION">
               <ServiceCategory
                 title="INOA"
                 services={[
-                  { name: "RAIZ/MEDIO", price: "$80500" },
-                  { name: "LARGO (completo)", price: "$97750" },
+                  { name: "RAIZ/MEDIO", price: "$89700" },
+                  { name: "LARGO (completo)", price: "$105800" },
                 ]}
               />
               <ServiceCategory
                 title="MAJIREL"
                 services={[
-                  { name: "RAIZ/MEDIO", price: "$63250" },
+                  { name: "RAIZ/MEDIO", price: "$67850" },
                   { name: "LARGO (completo)", price: "$86250" },
                 ]}
               />
               <ServiceCategory
                 title="WELLA"
                 services={[
-                  { name: "RAIZ/MEDIO", price: "$57500" },
-                  { name: "LARGO (completo)", price: "$74750" },
+                  { name: "RAIZ/MEDIO", price: "$74750" },
+                  { name: "LARGO (completo)", price: "$80500" },
                 ]}
               />
               <ServiceCategory
                 title="SILKEY"
                 services={[
-                  { name: "RAIZ/MEDIO", price: "$51750" },
-                  { name: "LARGO (completo)", price: "$69000" },
-                  { name: "APLICACION DE TINTURA", price: "$46000" },
-                  { name: "BAÑO DE LUZ", price: "$51750" },
+                  { name: "RAIZ/MEDIO", price: "$57500" },
+                  { name: "LARGO (completo)", price: "$74750" },
+                  { name: "APLICACION DE TINTURA", price: "$51750" },
+                  { name: "BAÑO DE LUZ", price: "$57500" },
                 ]}
               />
             </ServiceCategory>
             <ServiceCategory
               title="MECHAS LOCALIZADAS"
               services={[
-                { name: "RAIZ/MEDIO", price: "$103500" },
-                { name: "LARGO (completo)", price: "$138000" },
-                { name: "MEDIA CABEZA", price: "$74750" },
-                { name: "CONTORNO", price: "$51750" },
+                { name: "RAIZ/MEDIO", price: "$138000" },
+                { name: "LARGO (completo)", price: "$161000" },
+                { name: "MEDIA CABEZA", price: "$97750" },
+                { name: "CONTORNO", price: "$54050" },
               ]}
             />
             <ServiceCategory
               title="REFLEJOS CON GORRA"
               services={[
-                { name: "RAIZ/MEDIO", price: "$97750" },
-                { name: "LARGO", price: "$132250" },
+                { name: "RAIZ/MEDIO", price: "$120750" },
+                { name: "LARGO", price: "$149500" },
               ]}
             />
             <ServiceCategory
               title="BALAYAGE"
-              services={[{ name: "DESDE", price: "$149500" }]}
+              services={[{ name: "DESDE", price: "$155250" }]}
+            />
+            <ServiceCategory
+              title="DECOLORACION"
+              services={[
+                { name: "CORTO/MEDIO", price: "$86250" },
+                { name: "LARGO", price: "$92000" },
+              ]}
             />
           </div>
         </div>

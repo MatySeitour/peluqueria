@@ -61,7 +61,7 @@ export default function ServiciosPage() {
               title="TRATAMIENTOS"
               services={[
                 { name: "Olaplex 4 en 1", price: "$69000" },
-                { name: "Olaplex professional", price: "$11300" },
+                { name: "Olaplex professional", price: "$113000" },
                 { name: "LOREAL Bio Molecular", price: "$74750" },
               ]}
             />
@@ -103,7 +103,7 @@ export default function ServiciosPage() {
                 { name: "NIÑO HASTA 12 AÑOS", price: "$23000" },
                 { name: "BARBA", price: "$23000" },
                 { name: "CORTE + BARBA", price: "$34500" },
-                { name: "FLEQUILLO", price: "$172500" },
+                { name: "FLEQUILLO", price: "$17250" },
               ]}
             />
             <ServiceCategory

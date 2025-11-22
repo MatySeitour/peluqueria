@@ -168,7 +168,7 @@ export default function ServiciosPage() {
                 services={[
                   { name: "RAIZ/MEDIO", price: "$57500" },
                   { name: "LARGO", price: "$74750" },
-                  { name: "APLICACION DE HENNA (todos los largos)", price: "$57000" },
+                  { name: "APLICACION DE HENNA (todos los largos)", price: "$57500" },
                   { name: "APLICACION DE TINTURA", price: "$57000" },
                   { name: "BAÑO DE LUZ (desde)", price: "$55200" },
                   { name: "VINCHA RETOQUE", price: "$51750" },
@@ -260,7 +260,7 @@ export default function ServiciosPage() {
                   { name: "Basica Micosis", price: "$36800" },
                   { name: "Fresado profundo de uña micoticas", price: "$44850" },
                   { name: "onocofosis y helemas interdigitales", price: "$44850" },
-                  { name: "hiperqueratosis generalizada", price: "$44850" },
+                  { name: "hiperqueratosis generalizada", price: "$34500" },
                   { name: "Uña encarnada basica", price: "$34500" },
                   { name: "Uña encarnada unilateral granuloma", price: "$55800" },
                   { name: "Uña encarnada bilateral granuloma", price: "$74200" },

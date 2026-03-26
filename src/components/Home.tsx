@@ -48,6 +48,7 @@ export function Home() {
       className="relative flex h-full w-full flex-col items-center justify-center gap-4 bg-black"
     >
       <div className="absolute top-0 left-0 z-40 h-full w-full bg-black/50" />
+      {/* HOME */}
       <motion.div
         initial="hidden"
         animate="show"

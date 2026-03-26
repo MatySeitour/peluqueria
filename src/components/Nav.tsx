@@ -94,14 +94,7 @@ export function Nav() {
         href="https://www.instagram.com/staffmodernpeluquerias?igsh=MTAwcXpmcmgyaWlnZg%3D%3D"
       >
         <figure className="relative flex h-full w-16 -translate-y-1 items-center pt-2">
-          <img
-            src="/logo_negro.webp"
-            //
-            // className={cn(
-            //   "object-cover",
-            //   !navDesktopEffect && "brightness-200 invert filter",
-            // )}
-          />
+          <img src="/logo_negro.webp" />
         </figure>
       </a>
       <nav className="z-10 h-full w-full max-w-2xl">
@@ -110,14 +103,11 @@ export function Nav() {
             <li
               className={cn(
                 "hover:after:bg-primary text-primary relative cursor-pointer p-1 pb-1.5 font-medium transition-all after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:transition-all",
-                (
-                  activeSection === removeHashNavItemHref(navItem?.href) ||
-                  (
-                    navItem.name === "Servicios" &&
+                (activeSection === removeHashNavItemHref(navItem?.href) ||
+                  (navItem.name === "Servicios" &&
                     isServiciosPage &&
-                    !activeSection // Solo si no hay sección activa
-                  )
-                ) && "after:bg-primary",
+                    !activeSection)) && // Solo si no hay sección activa
+                  "after:bg-primary",
               )}
               key={navItem?.id}
             >

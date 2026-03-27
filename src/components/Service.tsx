@@ -24,7 +24,7 @@ export default function ServiciosPage() {
             <div className="w-16 h-0.5 bg-white mb-6"></div>
             <h2 className="text-4xl font-bold text-white">SERVICIOS</h2>
             <p className="text-s mx-auto mt-4 max-w-xl text-gray-600">
-              Precio Actualizado: 16/03/2026
+              Precio Actualizado: 26/03/2026
             </p>
           </div>
         </div>
@@ -43,7 +43,7 @@ export default function ServiciosPage() {
               title="LAVADO"
               services={[
                 { name: "COMÚN", price: "$17500" },
-                { name: "LOREAL", price: "$25300" },
+                { name: "LOREAL", price: "$28750" },
                 { name: "KERASTASSE", price: "$36800" },
                 { name: "OLAPLEX", price: "$40250" },
                 { name: "APLICACION (nutricion) LOREAL", price: "$28750" },
@@ -90,7 +90,9 @@ export default function ServiciosPage() {
               title="ALISADOS"
               services={[
                 { name: "CORTO/MEDIO (hombros)", price: "$108100" },
-                { name: "LARGO (cintura)", price: "$133400" },
+                { name: "LARGO (cintura)", price: "$179400" },
+                { name: "EXTRA LARGO", price: "$253000" },
+                { name: "FLEQUILLO / CONTORNO", price: "$71300" },
               ]}
             />
             <ServiceCategory

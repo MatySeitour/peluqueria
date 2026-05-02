@@ -30,7 +30,7 @@ export default function PaymentMethods() {
     },
     {
       name: "Mercado Pago",
-      description: "Pagá con tarjeta de Débito/Crédito",
+      description: "Pagá con tarjeta de Débito/Crédito o QR!",
       icon: SiMercadopago,
     },
   ];
@@ -126,7 +126,7 @@ export default function PaymentMethods() {
               </div>
               <div className="flex flex-col justify-center gap-0.5 text-lg sm:items-start">
                 <p className="text-primary font-semibold">
-                  Descuento en efectivo/transferencia
+                  Descuento en efectivo
                 </p>
                 <p className="text-primary/90 text-xs font-medium">
                   En todos nuestros servicios

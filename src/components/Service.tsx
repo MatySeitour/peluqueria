@@ -24,7 +24,7 @@ export default function ServiciosPage() {
             <div className="w-16 h-0.5 bg-white mb-6"></div>
             <h2 className="text-4xl font-bold text-white">SERVICIOS</h2>
             <p className="text-s mx-auto mt-4 max-w-xl text-gray-600">
-              Precio Actualizado: 26/03/2026
+              Precio Actualizado: 02/05/2026
             </p>
           </div>
         </div>

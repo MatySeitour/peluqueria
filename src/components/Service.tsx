@@ -24,7 +24,7 @@ export default function ServiciosPage() {
             <div className="w-16 h-0.5 bg-white mb-6"></div>
             <h2 className="text-4xl font-bold text-white">SERVICIOS</h2>
             <p className="text-s mx-auto mt-4 max-w-xl text-gray-600">
-              Precio Actualizado: 02/05/2026
+              Precio Actualizado: 01/07/2026
             </p>
           </div>
         </div>
@@ -42,40 +42,45 @@ export default function ServiciosPage() {
             <ServiceCategory
               title="LAVADO"
               services={[
-                { name: "COMÚN", price: "$17500" },
+                { name: "COMÚN", price: "$19550" },
                 { name: "LOREAL", price: "$28750" },
-                { name: "KERASTASSE", price: "$36800" },
-                { name: "OLAPLEX", price: "$40250" },
-                { name: "APLICACION (nutricion) LOREAL", price: "$28750" },
-                { name: "APLICACION (nutricion) OLAPLEX", price: "$36800" },
-                { name: "APLICACION (nutricion) KERASTASSE", price: "$34500" },
-                { name: "APLICACION LAVADO (shampoo/acond)", price: "$20700" },
+                { name: "KERASTASSE", price: "$40250" },
+                { name: "OLAPLEX", price: "$42550" },
+                { name: "APLICACION (nutricion) LOREAL", price: "$31050" },
+                { name: "APLICACION (nutricion) OLAPLEX", price: "$40250" },
+                { name: "APLICACION (nutricion) KERASTASSE", price: "$37950" },
+                { name: "APLICACION LAVADO (shampoo/acond)", price: "$23000" },
               ]}
             />
             <ServiceCategory
               title="NUTRICIONES"
               services={[
-                { name: "LOREAL TODOS", price: "$40250" },
-                { name: "KARSELL ", price: "$39100" },
-                { name: "KERASTASSE", price: "$54050" },
+                { name: "LOREAL TODOS", price: "$43700" },
+                { name: "KARSELL ", price: "$41400" },
+                { name: "KERASTASSE", price: "$59800" },
               ]}
             />
             <ServiceCategory
               title="AMPOLLAS"
               services={[
-                { name: "ALFAPARF", price: "$32200" },
-                { name: "LOREAL", price: "$37950" },
-                { name: "KERASTASSE", price: "$47150" },
-                { name: "APLICACION AMPOLLAS", price: "$32200" },
+                { name: "ALFAPARF", price: "$36800" },
+                { name: "KERASTASSE (solo ampolla)", price: "$49450" },
+                { name: "KERASTASSE + BOSTER", price: "$60500" },
+                { name: "APLICACION AMPOLLAS", price: "$34500" },
               ]}
             />
             <ServiceCategory
               title="TRATAMIENTOS"
               services={[
-                { name: "OLAPLEX PARA RULOS", price: "$124200" },
-                { name: "OLAPLEX 4 EN 1", price: "$75900" },
-                { name: "OLAPLEX profesional", price: "$124200" },
-                { name: "LOREAL (TODOS)", price: "$82800" },
+                { name: "OLAPLEX PARA RULOS", price: "$138000" },
+                { name: "OLAPLEX 4 EN 1", price: "$82800" },
+                { name: "OLAPLEX profesional", price: "$138000" },
+                { name: "LOREAL (vitamino/absolut repair)", price: "$82500" },
+                { name: "LOREAL MOLECULAR / METAL DETOX", price: "$89700" },
+                { name: "LOREAL VITAMINO SPECTRUM", price: "$109250" },
+                { name: "KERASTASSE professional", price: "$112700" },
+                { name: "KERASTASSE GLOSS ABSOLUT", price: "$112700" },
+                { name: "KERASTASSE CRONOLOGISTE", price: "$126500" },
               ]}
             />
             <ServiceCategory
@@ -84,6 +89,7 @@ export default function ServiciosPage() {
                 { name: "CORTO/MEDIO (hombros)", price: "$82800" },
                 { name: "LARGO (cintura)", price: "$108100" },
                 { name: "EXTRA LARGO", price: "$133400" },
+                { name: "FLEQUILLO/CONTORNO", price: "$57500" },
               ]}
             />
             <ServiceCategory
@@ -101,16 +107,17 @@ export default function ServiciosPage() {
                 { name: "CORTO/MEDIO (hombros)", price: "$82800" },
                 { name: "LARGO (cintura)", price: "$108100" },
                 { name: "EXTRA LARGO", price: "$133400" },
+                { name: "FLEQUILLO/CONTORNO", price: "$57500" },
               ]}
             />
             <ServiceCategory
               title="CORTES"
               services={[
-                { name: "DAMA", price: "$32200" },
-                { name: "CABALLEROS", price: "$32200" },
-                { name: "NIÑO HASTA 12 AÑOS", price: "$29900" },
-                { name: "BARBA", price: "$28750" },
-                { name: "CORTE + BARBA", price: "$43700" },
+                { name: "DAMA", price: "$37950" },
+                { name: "CABALLEROS", price: "$37950" },
+                { name: "NIÑO HASTA 12 AÑOS", price: "$34500" },
+                { name: "BARBA", price: "$33350" },
+                { name: "CORTE + BARBA", price: "$49450" },
                 { name: "FLEQUILLO", price: "$23000" },
               ]}
             />
@@ -136,32 +143,30 @@ export default function ServiciosPage() {
             <ServiceCategory
               title="ONDAS"
               services={[
-                { name: "CORTO/MEDIO (hombros)", price: "$48300" },
-                { name: "LARGO (cintura)", price: "$58650" },
-                { name: "EXTRA LARGO", price: "$64400" },
+                { name: "CORTO/MEDIO (hombros)", price: "$51750" },
+                { name: "LARGO (cintura)", price: "$64400" },
+                { name: "EXTRA LARGO", price: "$69000" },
               ]}
             />
             <ServiceCategory
-              title="TRENZAS"
+              title="PEINADOS"
               services={[
-                { name: "HASTA 2", price: "$0" },
-                { name: "MAS DE 2", price: "$0" },
-                { name: "PEINADOS/RECOGIDOS DESDE", price: "$69000" },
+                { name: "PEINADOS/RECOGIDOS DESDE", price: "$75900" },
               ]}
             />
             <ServiceCategory title="COLORACION">
               <ServiceCategory
                 title="INOA"
                 services={[
-                  { name: "RAIZ/MEDIO", price: "$103500" },
-                  { name: "LARGO (completo)", price: "$120750" },
-                  { name: "EXTRA LARGO", price: "$143750" },
+                  { name: "RAIZ/MEDIO", price: "$113850" },
+                  { name: "LARGO (completo)", price: "$132250" },
+                  { name: "EXTRA LARGO", price: "$155250" },
                 ]}
               />
               <ServiceCategory
                 title="MAJIREL"
                 services={[
-                  { name: "RAIZ/MEDIO", price: "$81650" },
+                  { name: "RAIZ/MEDIO", price: "$89700" },
                   { name: "LARGO (completo)", price: "$102350" },
                   { name: "EXTRA LARGO", price: "$119600" },
                 ]}
@@ -169,29 +174,37 @@ export default function ServiciosPage() {
               <ServiceCategory
                 title="WELLA (color perfect)"
                 services={[
-                  { name: "RAIZ/MEDIO", price: "$89700" },
-                  { name: "LARGO (completo)", price: "$106950" },
+                  { name: "RAIZ/MEDIO", price: "$97750" },
+                  { name: "LARGO (completo)", price: "$108100" },
                   { name: "EXTRA LARGO", price: "$124200" },
                 ]}
               />
               <ServiceCategory
                 title="COLOR TOUCH"
                 services={[
-                  { name: "RAIZ/MEDIO", price: "$89700" },
-                  { name: "LARGO", price: "$106950" },
+                  { name: "RAIZ/MEDIO", price: "$97750" },
+                  { name: "LARGO", price: "$108100" },
                   { name: "EXTRA LARGO", price: "$124200" },
                 ]}
               />
               <ServiceCategory
-                title="SILKEY"
+                title="IGORA"
                 services={[
-                  { name: "RAIZ/MEDIO", price: "$69000" },
-                  { name: "LARGO", price: "$85100" },
+                  { name: "RAIZ/MEDIO", price: "$74750" },
+                  { name: "LARGO (completo)", price: "$86250" },
                   { name: "EXTRA LARGO", price: "$102350" },
-                  { name: "APLICACION DE HENNA (todos los largos)", price: "$66700" },
-                  { name: "APLICACION DE TINTURA (desde)", price: "$66700" },
-                  { name: "BAÑO DE LUZ (desde)", price: "$63250" },
-                  { name: "VINCHA RETOQUE", price: "$59800" },
+                  { name: "APLICACION DE HENNA (todos los largos)", price: "$69000" },
+                  { name: "APLICACION DE TINTURA (desde)", price: "$69000" },
+                  { name: "BAÑO DE LUZ (desde)", price: "$71300" },
+                  { name: "VINCHA RETOQUE", price: "$65550" },
+                ]}
+              />
+              <ServiceCategory
+                title="IGORA ZERO"
+                services={[
+                  { name: "RAIZ/MEDIO", price: "$108100" },
+                  { name: "LARGO (completo)", price: "$126500" },
+                  { name: "EXTRA LARGO", price: "$132250" },
                 ]}
               />
             </ServiceCategory>
@@ -202,7 +215,7 @@ export default function ServiciosPage() {
                 { name: "LARGO (cintura)", price: "$189750" },
                 { name: "EXTRA LARGO", price: "$212750" },
                 { name: "MEDIA CABEZA", price: "$109250" },
-                { name: "CONTORNO", price: "$59800" },
+                { name: "CONTORNO", price: "$63250" },
               ]}
             />
             <ServiceCategory
@@ -215,7 +228,7 @@ export default function ServiciosPage() {
             />
             <ServiceCategory
               title="BALAYAGE"
-              services={[{ name: "DESDE", price: "$212750" }]}
+              services={[{ name: "DESDE", price: "$207000" }]}
             />
             <ServiceCategory
               title="DECOLORACIÓN"
@@ -237,38 +250,45 @@ export default function ServiciosPage() {
               <ServiceCategory
                 title="MANOS"
                 services={[
-                  { name: "Manicuria c/ esmalte tradicional", price: "$26450" },
-                  { name: "Manicuria c/esmalte semi french", price: "$35650" },
-                  { name: "Manicuria c/esmalte tradicional french", price: "$29900" },
-                  { name: "Manicuria c/ esmalte semi", price: "$32200" },
-                  { name: "Capping gel nivelacion", price: "$39100" },
-                  { name: "Capping con poligel", price: "$41400" },
-                  { name: "Soft gel por uña", price: "$13800" },
-                  { name: "Capping por uña", price: "$8050" },
-                  { name: "Cambio de esmalte tradicional", price: "$13800" },
-                  { name: "Cambio de esmalte semi", price: "$20700" },
-                  { name: "Retiro esmalte semi", price: "$13800" },
-                  { name: "Retiro capping", price: "$17250" },
-                  { name: "Manicuria hombres", price: "$24150" },
-                  { name: "Manicuria niñas", price: "$18400" },
-                  { name: "Retiro de esculpidas", price: "$24150" },
-                  { name: "Soft Gel DESDE", price: "$43700" },
+                  { name: "Manicuria c/ esmalte tradicional", price: "$28750" },
+                  { name: "Manicuria c/esmalte semi french", price: "$39100" },
+                  { name: "Manicuria c/esmalte tradicional french", price: "$32200" },
+                  { name: "Manicuria c/ esmalte semi", price: "$34500" },
+                  { name: "Capping gel nivelacion", price: "$42550" },
+                  { name: "Capping con poligel", price: "$44850" },
+                  { name: "Soft gel por uña", price: "$14950" },
+                  { name: "Capping por uña", price: "$9200" },
+                  { name: "Cambio de esmalte tradicional", price: "$16100" },
+                  { name: "Cambio de esmalte semi", price: "$23000" },
+                  { name: "Retiro esmalte semi", price: "$17250" },
+                  { name: "Retiro capping", price: "$19550" },
+                  { name: "Manicuria hombres", price: "$26450" },
+                  { name: "Manicuria niñas", price: "$20700" },
+                  { name: "Retiro de esculpidas", price: "$26450" },
+                  { name: "Soft Gel DESDE", price: "$46000" },
                 ]}
               />
               <ServiceCategory
                 title="PIES"
                 services={[
-                  { name: "Belleza de pies semi french", price: "$39100" },
-                  { name: "Belleza de pies tradicional french", price: "$31050" },
-                  { name: "Belleza de pies c/esmalte tradicional", price: "$28750" },
-                  { name: "Belleza de pies c/esmalte semi", price: "$34500" },
-                  { name: "Pedicuria c/ esmalte tradicional", price: "$43700" },
-                  { name: "Pedicuria básica", price: "$40250" },
-                  { name: "Pedicuria c/esmalte semi", price: "$46000" },
-                  { name: "Pedicuria hombres", price: "$40250" },
-                  { name: "Belleza pies niñas", price: "$24150" },
-                  { name: "Corte de uñas", price: "$21850" },
-                  { name: "Esculpidas por uña", price: "$17250" },
+                  { name: "Belleza de pies semi french", price: "$42550" },
+                  { name: "Belleza de pies tradicional french", price: "$33350" },
+                  { name: "Belleza de pies c/esmalte tradicional", price: "$31050" },
+                  { name: "Belleza de pies c/esmalte semi", price: "$37950" },
+                  { name: "Pedicuria c/ esmalte tradicional", price: "$46000" },
+                  { name: "Pedicuria básica", price: "$43700" },
+                  { name: "Pedicuria c/esmalte semi", price: "$50600" },
+                  { name: "Pedicuria hombres", price: "$43700" },
+                  { name: "Belleza pies niñas", price: "$26450" },
+                  { name: "Corte de uñas", price: "$25300" },
+                  { name: "Esculpidas por uña", price: "$23000" },
+                ]}
+              />
+              <ServiceCategory
+                title="Diseño Nail Art"
+                services={[
+                  { name: "Adicional decoracion de uñas", price: "$11500" },
+                  { name: "Adicional por uña", price: "$3450" },
                 ]}
               />
             </div>
@@ -283,7 +303,7 @@ export default function ServiciosPage() {
                   { name: "Pedicura básica", price: "$40250" },
                   { name: "Basica Micosis", price: "$42550" },
                   { name: "Fresado profundo de uña micoticas", price: "$51750" },
-                  { name: "onocofosis y helemas interdigitales", price: "$51750" },
+                  { name: "onocofosis y helomas interdigitales", price: "$51750" },
                   { name: "hiperqueratosis generalizada", price: "$40250" },
                   { name: "Uña encarnada basica", price: "$40250" },
                   { name: "Uña encarnada unilateral granuloma", price: "$64400" },
@@ -305,73 +325,73 @@ export default function ServiciosPage() {
               <ServiceCategory
                 title="HOMBRE"
                 services={[
-                  { name: "Cejas (cera/pinzita)", price: "$23000" },
-                  { name: "Orejas", price: "$13800" },
-                  { name: "Fosas", price: "$13800" },
-                  { name: "Hombros", price: "$21850" },
-                  { name: "Axilas", price: "$21850" },
-                  { name: "Pecho", price: "$25300" },
-                  { name: "Abdomen", price: "$24150" },
-                  { name: "Torso", price: "$28750" },
-                  { name: "Cintura", price: "$24150" },
-                  { name: "Espalda", price: "$28750" },
-                  { name: "Brazos", price: "$26450" },
-                  { name: "Glúteos", price: "$26450" },
-                  { name: "Pelvis completa", price: "$26450" },
-                  { name: "Piernas", price: "$34500" },
-                  { name: "Pies", price: "$13800" },
+                  { name: "Cejas (cera/pinzita)", price: "$28750" },
+                  { name: "Orejas", price: "$16100" },
+                  { name: "Fosas", price: "$16100" },
+                  { name: "Hombros", price: "$23500" },
+                  { name: "Axilas", price: "$26450" },
+                  { name: "Pecho", price: "$28750" },
+                  { name: "Abdomen", price: "$27600" },
+                  { name: "Torso", price: "$33350" },
+                  { name: "Cintura", price: "$27600" },
+                  { name: "Espalda", price: "$33350" },
+                  { name: "Brazos", price: "$29900" },
+                  { name: "Glúteos", price: "$29900" },
+                  { name: "Pelvis completa", price: "$29900" },
+                  { name: "Piernas", price: "$40250" },
+                  { name: "Pies", price: "$17250" },
                 ]}
               />
               <ServiceCategory title="MUJER">
                   <ServiceCategory title="ROSTRO"
                     services={[
-                      { name: "Cejas (cera/pinzita)", price: "$23000" },
-                      { name: "Bozo", price: "$13800" },
-                      { name: "Patillas", price: "$13800" },
-                      { name: "Pómulo", price: "$13800" },
-                      { name: "Mentón", price: "$13800" },
-                      { name: "Nuca", price: "$13800" },
-                      { name: "Fosas", price: "$13800" },
-                      { name: "Entrecejo", price: "$13800" },
-                      { name: "Rostro compl. (no incluye cejas)", price: "$25300" },
+                      { name: "Cejas (cera/pinzita)", price: "$26450" },
+                      { name: "Bozo", price: "$16100" },
+                      { name: "Patillas", price: "$16100" },
+                      { name: "Pómulo", price: "$16100" },
+                      { name: "Mentón", price: "$16100" },
+                      { name: "Nuca", price: "$16100" },
+                      { name: "Fosas", price: "$16100" },
+                      { name: "Entrecejo", price: "$16100" },
+                      { name: "Rostro compl. (no incluye cejas)", price: "$28750" },
                     ]}
                   />
 
                   <ServiceCategory
                     title="TORSO"
                     services={[
-                      { name: "Espalda", price: "$17250" },
-                      { name: "Cintura", price: "$13800" },
-                      { name: "Abdomen", price: "$14950" },
-                      { name: "Axila", price: "$13800" },
-                      { name: "Busto", price: "$13800" },
-                      { name: "Tiras varias", price: "$13800" },
-                      { name: "Hombros", price: "$13800" },
+                      { name: "Espalda", price: "$20700" },
+                      { name: "Cintura", price: "$16100" },
+                      { name: "Abdomen", price: "$17250" },
+                      { name: "Axila", price: "$16100" },
+                      { name: "Busto", price: "$16100" },
+                      { name: "Tiras varias", price: "$16100" },
+                      { name: "Hombros", price: "$16100" },
                     ]}
                   />
 
                   <ServiceCategory
                     title="BRAZOS-PIERNAS-PELVIS"
                     services={[
-                      { name: "Brazo completo", price: "$19550" },
-                      { name: "Medio brazo", price: "$13800" },
-                      { name: "Manos", price: "$13800" },
-                      { name: "Media pierna", price: "$20700" },
-                      { name: "Media con bikini", price: "$21850" },
-                      { name: "Media pierna con cav. profundo", price: "$23000" },
-                      { name: "Pierna entera", price: "$25300" },
-                      { name: "Pierna entera con cav", price: "$25300" },
-                      { name: "Pierna entera con cav profundo", price: "$28750" },
-                      { name: "Bikini", price: "$12650" },
-                      { name: "Bikini profundo", price: "$17250" },
-                      { name: "Pelvis completa", price: "$23000" },
-                      { name: "Muslo", price: "$19550" },
-                      { name: "Muslo con bikini", price: "$26450" },
-                      { name: "Muslo con bikini profundo", price: "$29900" },
-                      { name: "Tira de cola", price: "$17250" },
-                      { name: "Glúteos", price: "$23000" },
-                      { name: "Tira de glúteos", price: "$17250" },
-                      { name: "Pies", price: "$17250" },
+                      { name: "Brazo completo", price: "$23000" },
+                      { name: "Medio brazo", price: "$16100" },
+                      { name: "Manos", price: "$16100" },
+                      { name: "Media pierna", price: "$25300" },
+                      { name: "Media con bikini", price: "$25300" },
+                      { name: "Media pierna con cav. profundo", price: "$26450" },
+                      { name: "Pierna entera", price: "$28750" },
+                      { name: "Pierna entera con cav", price: "$28750" },
+                      { name: "Pierna entera con cav profundo", price: "$33350" },
+                      { name: "Bikini", price: "$14950" },
+                      { name: "Bikini profundo", price: "$20700" },
+                      { name: "Pelvis completa", price: "$26450" },
+                      { name: "Muslo", price: "$23000" },
+                      { name: "Muslo con bikini", price: "$29900" },
+                      { name: "Muslo con bikini profundo", price: "$34500" },
+                      { name: "Tira de cola", price: "$20700" },
+                      { name: "Glúteos", price: "$26450" },
+                      { name: "Tira de glúteos", price: "$20700" },
+                      { name: "Pies", price: "$20700" },
                     ]}
                   />
               </ServiceCategory>
@@ -387,7 +407,7 @@ export default function ServiciosPage() {
                 title="CEJAS"
                 services={[
                   { name: "Diseño personalizado", price: "$28750" },
-                  { name: "Depilación (cera, pinzita)", price: "$20700" },
+                  { name: "Depilación (cera, pinzita)", price: "$26450" },
                   { name: "Perfilado / Laminado", price: "$34500" },
                   { name: "Perfilado / Diseño / Color", price: "$40250" },
                 ]}

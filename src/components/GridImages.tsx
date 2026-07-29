@@ -75,6 +75,86 @@ export function GridImages() {
   // All 5 slides data
   const slidesData = [
     {
+      title: "Resultados que hablan por sí solos",
+      images: [
+        {
+          alt: "Trabajo realizado 1",
+          className: "relative col-start-1 col-end-2 row-start-1 row-end-3 overflow-hidden rounded-md md:row-end-4",
+          src: "/whatsapp_0.jpeg",
+        },
+        {
+          alt: "Trabajo realizado 2",
+          className:
+            "relative col-start-2 col-end-3 row-start-1 row-end-2 overflow-hidden rounded-md md:col-start-3 md:col-end-4 md:row-start-2 md:row-end-4 2xl:col-start-2 2xl:col-end-3 2xl:row-start-1 2xl:row-end-2",
+          src: "/pies.webp",
+        },
+        {
+          alt: "Trabajo realizado 3",
+          className:
+            "relative col-start-2 col-end-3 row-start-2 row-end-3 overflow-hidden rounded-md md:col-start-3 md:col-end-4 md:row-start-1 md:row-end-2 2xl:row-end-2",
+          src: "/wpp10.jfif",
+        },
+        {
+          alt: "Trabajo realizado 4",
+          className:
+            "relative col-start-3 col-end-3 row-start-1 row-end-3 overflow-hidden rounded-md md:col-start-4 md:col-end-4 md:row-start-2 md:row-end-4",
+          src: "/whatsapp_3.jpeg",
+        },
+        {
+          alt: "Trabajo realizado 5",
+          className:
+            "relative col-start-1 col-end-3 overflow-hidden rounded-md md:col-start-2 md:col-end-3 md:row-start-1 md:row-end-4 2xl:col-end-4 2xl:row-start-2",
+          src: "/whatsapp_4.jpeg",
+        },
+        {
+          alt: "Trabajo realizado 6",
+          className:
+            "relative col-start-3 col-end-4 row-start-3 row-end-4 overflow-hidden rounded-md md:col-start-4 md:col-end-5 md:row-start-1",
+          src: "/whatsapp_5.jpeg",
+        },
+      ],
+    },
+    {
+      title: "Cada detalle cuenta",
+      images: [
+        {
+          alt: "Trabajo realizado 7",
+          className: "relative col-start-1 col-end-2 row-start-1 row-end-3 overflow-hidden rounded-md md:row-end-4",
+          src: "/wpp_9.jfif",
+        },
+        {
+          alt: "Trabajo realizado 8",
+          className:
+            "relative col-start-2 col-end-3 row-start-1 row-end-2 overflow-hidden rounded-md md:col-start-3 md:col-end-4 md:row-start-2 md:row-end-4 2xl:col-start-2 2xl:col-end-3 2xl:row-start-1 2xl:row-end-2",
+          src: "/whatsapp_7.jpeg",
+        },
+        {
+          alt: "Trabajo realizado 9",
+          className:
+            "relative col-start-2 col-end-3 row-start-2 row-end-3 overflow-hidden rounded-md md:col-start-3 md:col-end-4 md:row-start-1 md:row-end-2 2xl:row-end-2",
+          src: "/image.webp",
+        },
+        {
+          alt: "Trabajo realizado 10",
+          className:
+            "relative col-start-3 col-end-3 row-start-1 row-end-3 overflow-hidden rounded-md md:col-start-4 md:col-end-4 md:row-start-2 md:row-end-4",
+          src: "/whatsapp_1.jpeg",
+        },
+        {
+          alt: "Trabajo realizado 11",
+          className:
+            "relative col-start-1 col-end-3 overflow-hidden rounded-md md:col-start-2 md:col-end-3 md:row-start-1 md:row-end-4 2xl:col-end-4 2xl:row-start-2",
+          src: "/whatsapp_2.jpeg",
+        },
+        {
+          alt: "Trabajo realizado 12",
+          className:
+            "relative col-start-3 col-end-4 row-start-3 row-end-4 overflow-hidden rounded-md md:col-start-4 md:col-end-5 md:row-start-1",
+          src: "/whatsapp_3.jpeg",
+        },
+      ],
+    },
+    {
       title: "Trabajamos para resaltar tu belleza",
       images: [
         {

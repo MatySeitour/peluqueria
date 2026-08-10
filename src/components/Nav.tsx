@@ -18,6 +18,10 @@ export function Nav() {
   const mq = useMediaQueries();
   const location = useLocation();
   const isServiciosPage = location.pathname === "/servicios";
+  const isSolidHeaderPage =
+    isServiciosPage || location.pathname === "/reservar";
+  const isPlainRouteNavItem = (name: string) =>
+    name === "Servicios" || name === "Reservar turno";
 
   const removeHashNavItemHref = (href: string) => href.split("#")[1];
 
@@ -81,7 +85,7 @@ export function Nav() {
     <header
       className={cn(
         "border-primary fixed left-0 z-50 flex h-16 w-full items-center justify-between border-b px-6 transition-all",
-        isServiciosPage
+        isSolidHeaderPage
           ? "bg-third top-0"
           : navDesktopEffect
             ? "bg-third top-0"
@@ -104,8 +108,9 @@ export function Nav() {
               className={cn(
                 "hover:after:bg-primary text-primary relative cursor-pointer p-1 pb-1.5 font-medium transition-all after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:transition-all",
                 (activeSection === removeHashNavItemHref(navItem?.href) ||
-                  (navItem.name === "Servicios" &&
-                    isServiciosPage &&
+                  (isPlainRouteNavItem(navItem.name) &&
+                    isSolidHeaderPage &&
+                    location.pathname === navItem.href &&
                     !activeSection)) && // Solo si no hay sección activa
                   "after:bg-primary",
               )}
@@ -120,7 +125,7 @@ export function Nav() {
                 >
                   {navItem.name}
                 </a>
-              ) : navItem.name === "Servicios" ? (
+              ) : isPlainRouteNavItem(navItem.name) ? (
                 <HashLink
                   smooth
                   to={navItem.href}

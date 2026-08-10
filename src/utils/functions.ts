@@ -2,6 +2,7 @@ import clsx from "clsx";
 import { ClassValue } from "clsx";
 import { useEffect, useState } from "react";
 import { IconType } from "react-icons";
+import { BsCalendar4Week } from "react-icons/bs";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa6";
 import { FiPhone } from "react-icons/fi";
 import { GoHome } from "react-icons/go";
@@ -89,4 +90,5 @@ export const navItems = [
     href: "https://maps.app.goo.gl/vxQkNNbYEvREdFBi7",
     icon: LiaMapMarkerAltSolid,
   },
+  { id: 6, name: "Reservar turno", href: "/reservar", icon: BsCalendar4Week },
 ];

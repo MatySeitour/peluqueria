@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Booking from "./components/Booking";
 import Footer from "./components/Footer";
 import { GridImages } from "./components/GridImages";
 import { Home } from "./components/Home";
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/servicios" element={<Service />} />
+          <Route path="/reservar" element={<Booking />} />
         </Routes>
         <PaymentMethods />
         <GridImages />

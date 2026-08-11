@@ -7,4 +7,9 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   assetsInclude: ["**/*.JPG"],
   base: "/",
+  server: {
+    proxy: {
+      "/api": "http://localhost:3001",
+    },
+  },
 });

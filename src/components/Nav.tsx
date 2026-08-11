@@ -19,7 +19,9 @@ export function Nav() {
   const location = useLocation();
   const isServiciosPage = location.pathname === "/servicios";
   const isSolidHeaderPage =
-    isServiciosPage || location.pathname === "/reservar";
+    isServiciosPage ||
+    location.pathname === "/reservar" ||
+    location.pathname === "/";
   const isPlainRouteNavItem = (name: string) =>
     name === "Servicios" || name === "Reservar turno";
 
@@ -34,6 +36,14 @@ export function Nav() {
     document.addEventListener(`scroll`, onScroll);
     return () => document.removeEventListener(`scroll`, onScroll);
   }, [navDesktopEffect]);
+
+  // Al cambiar de ruta no queda ninguna sección con hash observándose todavía
+  // (recién se registran en el próximo effect), así que sin este reset el
+  // activeSection de la página anterior seguía resaltando un item que no
+  // corresponde (ej. "Reservar turno" mostraba resaltado "Medios de pago").
+  useEffect(() => {
+    setActiveSection("");
+  }, [location.pathname]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -55,7 +65,10 @@ export function Nav() {
     });
 
     return () => observer.disconnect();
-  }, []);
+    // Las secciones con hash (home, medios de pago, contacto) ahora solo se
+    // renderizan en ciertas rutas, así que hay que reobservar cada vez que
+    // cambia la ruta y no solo una vez al montar.
+  }, [location.pathname]);
 
   const closeNavMobile = () => setIsNavOpen(false);
 
@@ -102,7 +115,7 @@ export function Nav() {
         </figure>
       </a>
       <nav className="z-10 h-full w-full max-w-2xl">
-        <ul className="hidden h-full w-full items-center justify-between min-[880px]:flex">
+        <ul className="font-nav hidden h-full w-full items-center justify-between min-[880px]:flex">
           {navItems?.map((navItem) => (
             <li
               className={cn(
@@ -206,7 +219,7 @@ export function Nav() {
                   variants={containerNavAnimation}
                   initial="hidden"
                   animate="visible"
-                  className="border-primary flex h-auto w-full flex-col gap-2 border-t border-b px-4 py-8"
+                  className="font-nav border-primary flex h-auto w-full flex-col gap-2 border-t border-b px-4 py-8"
                 >
                   {navItems?.map((navItem) => (
                     <motion.li
@@ -230,7 +243,7 @@ export function Nav() {
                           <div className="bg-primary/20 border-primary flex h-full w-fit items-center gap-1 rounded-full px-2 py-1.5">
                             <MdLocalOffer className="text-primary size-4 min-w-4" />
                             <p className="text-primary text-xs text-nowrap">
-                              15% desc en efectivo/transferencia
+                              15% desc en efectivo
                             </p>
                           </div>
                         )}
@@ -245,7 +258,7 @@ export function Nav() {
                         variants={containerNavAnimation}
                         initial="hidden"
                         animate="visible"
-                        className="flex flex-col items-start justify-center gap-4 min-[880px]:justify-start"
+                        className="font-nav flex flex-col items-start justify-center gap-4 min-[880px]:justify-start"
                       >
                         <motion.div
                           variants={{
@@ -284,14 +297,18 @@ export function Nav() {
                     className="flex h-12 w-full justify-between px-4"
                   >
                     <SocialMedia />
-                    <a
-                      target="_blank"
-                      href="https://api.whatsapp.com/send?phone=541127210827&text=hola%F0%9F%91%8B%20quiero%20solicitar%20un%20turno!%20"
-                      className="bg-primary transition-al flex w-fit min-w-36 cursor-pointer items-center justify-center gap-2 rounded-full px-4 py-1 text-xs font-medium text-nowrap text-white"
+                    <HashLink
+                      smooth
+                      to="/reservar"
+                      onClick={() => {
+                        scrollToTop();
+                        closeNavMobile();
+                      }}
+                      className="font-nav bg-primary transition-al flex w-fit min-w-36 cursor-pointer items-center justify-center gap-2 rounded-full px-4 py-1 text-xs font-medium text-nowrap text-white"
                     >
                       <BsCalendar4Week className="size-4 min-w-4 text-white" />
                       Solicitar turno
-                    </a>
+                    </HashLink>
                   </motion.div>
                 </div>
               </motion.article>

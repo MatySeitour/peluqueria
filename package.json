@@ -8,6 +8,7 @@
   },
   "scripts": {
     "dev": "vite",
+    "dev:api": "tsx watch --env-file=.env scripts/dev-api-server.ts",
     "build": "tsc -b && tsc --noEmit -p tsconfig.api.json && vite build",
     "lint": "eslint .",
     "preview": "vite preview",

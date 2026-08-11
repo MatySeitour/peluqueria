@@ -62,11 +62,18 @@ export interface InsertEventPayload {
   endDateTime: string;
   timeZone: string;
   extendedProperties: Record<string, string>;
+  /** colorId de Google Calendar para distinguir a la empleada asignada. */
+  colorId: string;
 }
 
 export interface InsertedEvent {
   id: string;
 }
+
+// Prefijos visuales en el título para distinguir de un vistazo en Calendar
+// si el cliente ya confirmó por WhatsApp o no.
+const PENDING_PREFIX = "🟡 ";
+const CONFIRMED_PREFIX = "🟢 ";
 
 export async function insertEvent(payload: InsertEventPayload): Promise<InsertedEvent> {
   const url = `${CALENDAR_API_BASE}/calendars/${encodeURIComponent(getCalendarId())}/events`;
@@ -74,12 +81,42 @@ export async function insertEvent(payload: InsertEventPayload): Promise<Inserted
     url,
     method: "POST",
     data: {
-      summary: payload.summary,
+      summary: `${PENDING_PREFIX}${payload.summary}`,
       description: payload.description,
       start: { dateTime: payload.startDateTime, timeZone: payload.timeZone },
       end: { dateTime: payload.endDateTime, timeZone: payload.timeZone },
       extendedProperties: { private: payload.extendedProperties },
+      colorId: payload.colorId,
+      // Arranca como tentativo: recién queda confirmado cuando el cliente
+      // confirma por WhatsApp (ver /api/bookings/confirm).
+      status: "tentative",
     },
   });
   return response.data;
+}
+
+/** Para deshacer un turno combinado si falla la creación de un tramo posterior. */
+export async function deleteEvent(eventId: string): Promise<void> {
+  const url = `${CALENDAR_API_BASE}/calendars/${encodeURIComponent(getCalendarId())}/events/${encodeURIComponent(eventId)}`;
+  await getClient().request({ url, method: "DELETE" });
+}
+
+/** Pasa un evento de tentativo (🟡) a confirmado (🟢) tras la confirmación por WhatsApp. */
+export async function confirmEvent(eventId: string): Promise<void> {
+  const url = `${CALENDAR_API_BASE}/calendars/${encodeURIComponent(getCalendarId())}/events/${encodeURIComponent(eventId)}`;
+
+  const current = await getClient().request<{ summary?: string }>({
+    url,
+    params: { fields: "summary" },
+  });
+  const bareSummary = (current.data.summary ?? "").replace(
+    new RegExp(`^(${PENDING_PREFIX}|${CONFIRMED_PREFIX})`),
+    "",
+  );
+
+  await getClient().request({
+    url,
+    method: "PATCH",
+    data: { status: "confirmed", summary: `${CONFIRMED_PREFIX}${bareSummary}` },
+  });
 }

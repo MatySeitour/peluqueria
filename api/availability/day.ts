@@ -5,7 +5,10 @@ import { normalizeEventsForDate } from "../_lib/normalizeEvents";
 import { resolveProducts } from "../_lib/resolveProducts";
 import { BUSINESS_HOURS, EMPLOYEES, SLOT_GRANULARITY_MINUTES } from "../../src/config/staff";
 import {
+  anyEmployeeCoversAllSkills,
   computeDayAvailability,
+  computeSequentialDayAvailability,
+  isEmployeeQualified,
   localDayRange,
   minutesToTime,
   nowInTimezone,
@@ -18,6 +21,7 @@ const querySchema = z.object({
     .string()
     .min(1)
     .transform((value) => value.split(",")),
+  employeeId: z.string().min(1).optional(),
 });
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
@@ -31,7 +35,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     res.status(400).json({ error: "VALIDATION_ERROR", details: parsed.error.flatten() });
     return;
   }
-  const { date, productIds } = parsed.data;
+  const { date, productIds, employeeId } = parsed.data;
 
   const resolved = resolveProducts(productIds);
   if (!resolved) {
@@ -39,7 +43,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return;
   }
 
-  const hours = BUSINESS_HOURS[weekdayOf(date)];
+  let employees = EMPLOYEES;
+  if (employeeId) {
+    const employee = EMPLOYEES.find((e) => e.id === employeeId);
+    if (!employee || !isEmployeeQualified(employee, resolved.requiredSkills)) {
+      res.status(400).json({ error: "INVALID_EMPLOYEE" });
+      return;
+    }
+    employees = [employee];
+  }
+
+  const weekday = weekdayOf(date);
+  const hours = BUSINESS_HOURS[weekday];
   if (!hours) {
     res.status(200).json({ slots: [] });
     return;
@@ -56,17 +71,36 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   const now = nowInTimezone();
-  const slots = computeDayAvailability(
-    normalizeEventsForDate(rawEvents, date),
-    resolved.requiredSkills,
-    hours,
-    {
-      employees: EMPLOYEES,
-      durationMinutes: resolved.durationMinutes,
-      granularityMinutes: SLOT_GRANULARITY_MINUTES,
-    },
-    now.date === date ? now.minutes : undefined,
-  );
+  const nowMinutes = now.date === date ? now.minutes : undefined;
+  const dayEvents = normalizeEventsForDate(rawEvents, date);
+
+  // Si nadie individualmente cubre todas las habilidades pedidas, el turno se arma
+  // combinando empleadas distintas por tramo (ver resolveProducts.legs).
+  const needsCombinedBooking =
+    !employeeId && resolved.requiredSkills.length > 1 && !anyEmployeeCoversAllSkills(employees, resolved.requiredSkills);
+
+  const slots = needsCombinedBooking
+    ? computeSequentialDayAvailability(
+        dayEvents,
+        resolved.legs,
+        hours,
+        weekday,
+        employees,
+        SLOT_GRANULARITY_MINUTES,
+        nowMinutes,
+      )
+    : computeDayAvailability(
+        dayEvents,
+        resolved.requiredSkills,
+        hours,
+        weekday,
+        {
+          employees,
+          durationMinutes: resolved.durationMinutes,
+          granularityMinutes: SLOT_GRANULARITY_MINUTES,
+        },
+        nowMinutes,
+      );
 
   res.status(200).json({
     slots: slots.map((slot) => ({

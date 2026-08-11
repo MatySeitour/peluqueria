@@ -20,7 +20,7 @@ export default function Footer() {
               <figure className="relative flex h-16 w-16 -translate-y-1 items-center">
                 <img src="/logo_negro.webp" className="object-cover" />
               </figure>
-              <p className="text text-4xl">STAFF MODERN</p>
+              <p className="font-display text-4xl">STAFF MODERN</p>
             </div>
             <div className="w-full">
               <ul className="flex w-full items-center justify-center gap-4 lg:justify-start">
@@ -91,7 +91,7 @@ export default function Footer() {
             </a>
             <div className="flex h-8 w-fit items-center justify-center gap-2 rounded-full bg-slate-800 px-4 text-white">
               <MdLocalOffer className="text-white" />
-              <p className="text-xs">15% descuento en efectivo/transferencia</p>
+              <p className="text-xs">15% descuento en efectivo</p>
             </div>
             <div className="inline-block w-full p-2 text-center text-xs text-white/70 sm:hidden">
               © {new Date().getFullYear()} StaffModern. Todos los derechos

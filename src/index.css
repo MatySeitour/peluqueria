@@ -4,6 +4,10 @@
   --color-primary: #7d726a;
   --color-secondary: #d6cfc3;
   --color-third: #e8e5de;
+
+  /* font-display: título "STAFF MODERN" / monograma. font-nav: navbar, botones, bajada, horario. */
+  --font-display: "Playfair Display", serif;
+  --font-nav: "EB Garamond", serif;
 }
 
 html {

@@ -1,7 +1,8 @@
-import { FaWhatsapp } from "react-icons/fa6";
+import { BsCalendar4Week } from "react-icons/bs";
 import { motion , AnimatePresence } from "framer-motion"
 import { Star, ChevronLeft, ChevronRight, CirclePause, CirclePlay } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
+import { Link } from "react-router-dom"
 
 function useMediaQueries() {
   const [screenSize, setScreenSize] = useState(0)
@@ -522,16 +523,16 @@ export function GridImages() {
             variants={appear}
             className="relative cursor-pointer !transition-none"
           >
-            <a
-              className="bg-primary hover:bg-primary/90 relative flex w-full items-center gap-2 rounded-full px-4 py-2 shadow-2xl transition-colors"
-              target="_blank"
-              href="https://api.whatsapp.com/send?phone=541127210827"
+            <Link
+              className="font-nav bg-primary hover:bg-primary/90 relative flex w-full items-center gap-2 rounded-full px-4 py-2 shadow-2xl transition-colors"
+              to="/reservar"
+              onClick={() => window.scrollTo({ top: 0 })}
             >
-              <FaWhatsapp className="size-5 min-w-5 text-white" />
+              <BsCalendar4Week className="size-5 min-w-5 text-white" />
               <p className="text-xs font-medium tracking-wide text-white">
                 Solicitar turno
               </p>
-            </a>
+            </Link>
           </motion.div>
           <div className="flex flex-col items-center gap-2 md:hidden">
             <div className="flex gap-2">

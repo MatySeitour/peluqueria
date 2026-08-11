@@ -175,12 +175,24 @@ export function generateDaySlots(
  * requeridas por los productos elegidos (un turno = una sola empleada,
  * aunque el cliente haya combinado productos de distinta habilidad).
  */
+export function isEmployeeQualified(
+  employee: Employee,
+  requiredSkills: EmployeeSkill[],
+): boolean {
+  return requiredSkills.every((skill) => employee.skills.includes(skill));
+}
+
+/**
+ * Como isEmployeeQualified, pero además exige que ese día de la semana esté
+ * entre los días de trabajo de la empleada.
+ */
 export function getQualifiedEmployees(
   employees: Employee[],
   requiredSkills: EmployeeSkill[],
+  weekday: 0 | 1 | 2 | 3 | 4 | 5 | 6,
 ): Employee[] {
-  return employees.filter((employee) =>
-    requiredSkills.every((skill) => employee.skills.includes(skill)),
+  return employees.filter(
+    (employee) => employee.workDays.includes(weekday) && isEmployeeQualified(employee, requiredSkills),
   );
 }
 
@@ -212,11 +224,12 @@ export function computeDayAvailability(
   dayEvents: NormalizedEvent[],
   requiredSkills: EmployeeSkill[],
   hours: DayHours | null,
+  weekday: 0 | 1 | 2 | 3 | 4 | 5 | 6,
   config: AvailabilityConfig,
   nowMinutes?: number,
 ): SlotAvailability[] {
   if (!hours) return [];
-  const qualified = getQualifiedEmployees(config.employees, requiredSkills);
+  const qualified = getQualifiedEmployees(config.employees, requiredSkills, weekday);
   return generateDaySlots(hours, config.durationMinutes, config.granularityMinutes)
     .filter((slot) => nowMinutes === undefined || slot.startMinutes >= nowMinutes)
     .map((slot) => computeSlotAvailability(slot, qualified, dayEvents));
@@ -232,12 +245,14 @@ export function computeMonthAvailability(
 ): Record<string, boolean> {
   const result: Record<string, boolean> = {};
   for (const date of dates) {
-    const hours = businessHours[weekdayOf(date)];
+    const weekday = weekdayOf(date);
+    const hours = businessHours[weekday];
     const nowMinutes = today && today.date === date ? today.minutes : undefined;
     const slots = computeDayAvailability(
       eventsByDate.get(date) ?? [],
       requiredSkills,
       hours,
+      weekday,
       config,
       nowMinutes,
     );
@@ -251,4 +266,97 @@ export function pickEmployeeForBooking(
   employees: Employee[],
 ): Employee | null {
   return employees.find((employee) => freeEmployeeIds.includes(employee.id)) ?? null;
+}
+
+// ---- Turnos combinados (varias habilidades que ninguna empleada cubre sola) ----
+//
+// Si el cliente combina servicios de habilidades que ninguna empleada tiene todas
+// juntas (ej. peluquería + uñas, hoy nadie hace ambas), el turno se arma como una
+// secuencia de tramos consecutivos, uno por habilidad, cada uno con su propia
+// empleada. `resolveProducts` decide el orden de los tramos; acá solo se busca el
+// primer horario en que cada tramo tenga alguien libre.
+
+export interface Leg {
+  skill: EmployeeSkill;
+  durationMinutes: number;
+}
+
+export interface LegAvailability extends Leg, Slot {
+  freeEmployeeIds: string[];
+}
+
+export interface SequentialSlotAvailability extends Slot {
+  available: boolean;
+  legs: LegAvailability[];
+}
+
+export function computeSequentialDayAvailability(
+  dayEvents: NormalizedEvent[],
+  legs: Leg[],
+  hours: DayHours | null,
+  weekday: 0 | 1 | 2 | 3 | 4 | 5 | 6,
+  employees: Employee[],
+  granularityMinutes: number,
+  nowMinutes?: number,
+): SequentialSlotAvailability[] {
+  if (!hours || legs.length === 0) return [];
+  const open = timeToMinutes(hours.open);
+  const close = timeToMinutes(hours.close);
+  const totalDuration = legs.reduce((sum, leg) => sum + leg.durationMinutes, 0);
+
+  const qualifiedByLeg = legs.map((leg) => getQualifiedEmployees(employees, [leg.skill], weekday));
+
+  const results: SequentialSlotAvailability[] = [];
+  for (let start = open; start + totalDuration <= close; start += granularityMinutes) {
+    if (nowMinutes !== undefined && start < nowMinutes) continue;
+    let cursor = start;
+    let allAvailable = true;
+    const legResults: LegAvailability[] = legs.map((leg, i) => {
+      const slot: Slot = { startMinutes: cursor, endMinutes: cursor + leg.durationMinutes };
+      cursor = slot.endMinutes;
+      const freeEmployeeIds = qualifiedByLeg[i]
+        .filter((employee) => isEmployeeFreeForSlot(employee.id, slot, dayEvents))
+        .map((employee) => employee.id);
+      if (freeEmployeeIds.length === 0) allAvailable = false;
+      return { ...leg, ...slot, freeEmployeeIds };
+    });
+    results.push({ startMinutes: start, endMinutes: cursor, available: allAvailable, legs: legResults });
+  }
+  return results;
+}
+
+export function computeSequentialMonthAvailability(
+  eventsByDate: Map<string, NormalizedEvent[]>,
+  legs: Leg[],
+  dates: string[],
+  businessHours: BusinessHours,
+  employees: Employee[],
+  granularityMinutes: number,
+  today?: { date: string; minutes: number },
+): Record<string, boolean> {
+  const result: Record<string, boolean> = {};
+  for (const date of dates) {
+    const weekday = weekdayOf(date);
+    const hours = businessHours[weekday];
+    const nowMinutes = today && today.date === date ? today.minutes : undefined;
+    const slots = computeSequentialDayAvailability(
+      eventsByDate.get(date) ?? [],
+      legs,
+      hours,
+      weekday,
+      employees,
+      granularityMinutes,
+      nowMinutes,
+    );
+    result[date] = slots.some((slot) => slot.available);
+  }
+  return result;
+}
+
+/** true si alguna empleada individual cubre TODAS las habilidades pedidas (turno de una sola empleada). */
+export function anyEmployeeCoversAllSkills(
+  employees: Employee[],
+  requiredSkills: EmployeeSkill[],
+): boolean {
+  return employees.some((employee) => isEmployeeQualified(employee, requiredSkills));
 }

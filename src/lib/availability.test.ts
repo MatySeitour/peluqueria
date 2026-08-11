@@ -1,8 +1,10 @@
 import { describe, expect, it } from "vitest";
 import type { Employee } from "../config/staff";
 import {
+  anyEmployeeCoversAllSkills,
   computeDayAvailability,
   computeMonthAvailability,
+  computeSequentialDayAvailability,
   computeSlotAvailability,
   generateDaySlots,
   getQualifiedEmployees,
@@ -13,10 +15,12 @@ import {
   type NormalizedEvent,
 } from "./availability";
 
+const ALL_DAYS: (0 | 1 | 2 | 3 | 4 | 5 | 6)[] = [0, 1, 2, 3, 4, 5, 6];
+
 const EMPLOYEES: Employee[] = [
-  { id: "ana", name: "Ana", skills: ["peluqueria"] },
-  { id: "bea", name: "Bea", skills: ["peluqueria", "unas"] },
-  { id: "cami", name: "Cami", skills: ["unas"] },
+  { id: "ana", name: "Ana", skills: ["peluqueria"], workDays: ALL_DAYS, calendarColorId: "1" },
+  { id: "bea", name: "Bea", skills: ["peluqueria", "unas"], workDays: ALL_DAYS, calendarColorId: "2" },
+  { id: "cami", name: "Cami", skills: ["unas"], workDays: ALL_DAYS, calendarColorId: "3" },
 ];
 
 describe("generateDaySlots", () => {
@@ -38,7 +42,7 @@ describe("isEmployeeFreeForSlot / computeSlotAvailability", () => {
     const events: NormalizedEvent[] = [
       { startMinutes: 600, endMinutes: 660, employeeId: "ana", blocksAllDay: false },
     ];
-    const qualified = getQualifiedEmployees(EMPLOYEES, ["peluqueria"]); // ana, bea
+    const qualified = getQualifiedEmployees(EMPLOYEES, ["peluqueria"], 1); // ana, bea
     const result = computeSlotAvailability(slot, qualified, events);
     expect(result.available).toBe(true); // bea sigue libre
     expect(result.freeEmployeeIds).toEqual(["bea"]);
@@ -49,7 +53,7 @@ describe("isEmployeeFreeForSlot / computeSlotAvailability", () => {
       { startMinutes: 600, endMinutes: 660, employeeId: "ana", blocksAllDay: false },
       { startMinutes: 600, endMinutes: 660, employeeId: "bea", blocksAllDay: false },
     ];
-    const qualified = getQualifiedEmployees(EMPLOYEES, ["peluqueria"]);
+    const qualified = getQualifiedEmployees(EMPLOYEES, ["peluqueria"], 1);
     const result = computeSlotAvailability(slot, qualified, events);
     expect(result.available).toBe(false);
     expect(result.freeEmployeeIds).toEqual([]);
@@ -59,7 +63,7 @@ describe("isEmployeeFreeForSlot / computeSlotAvailability", () => {
     const events: NormalizedEvent[] = [
       { startMinutes: 600, endMinutes: 660, employeeId: null, blocksAllDay: false },
     ];
-    const qualified = getQualifiedEmployees(EMPLOYEES, ["unas"]); // cami, bea
+    const qualified = getQualifiedEmployees(EMPLOYEES, ["unas"], 1); // cami, bea
     expect(isEmployeeFreeForSlot("cami", slot, events)).toBe(false);
     expect(isEmployeeFreeForSlot("bea", slot, events)).toBe(false);
     expect(computeSlotAvailability(slot, qualified, events).available).toBe(false);
@@ -85,12 +89,12 @@ describe("getQualifiedEmployees con múltiples habilidades (turno con varios pro
     // ana: solo peluqueria, bea: peluqueria+unas, cami: solo unas.
     // Un turno que combina un producto de peluqueria con uno de uñas requiere
     // una única empleada que sepa hacer ambas cosas.
-    const qualified = getQualifiedEmployees(EMPLOYEES, ["peluqueria", "unas"]);
+    const qualified = getQualifiedEmployees(EMPLOYEES, ["peluqueria", "unas"], 1);
     expect(qualified.map((e) => e.id)).toEqual(["bea"]);
   });
 
   it("devuelve [] si nadie tiene la combinación completa de habilidades", () => {
-    const qualified = getQualifiedEmployees(EMPLOYEES, ["peluqueria", "unas", "estetica"]);
+    const qualified = getQualifiedEmployees(EMPLOYEES, ["peluqueria", "unas", "estetica"], 1);
     expect(qualified).toEqual([]);
   });
 });
@@ -157,7 +161,7 @@ describe("computeDayAvailability", () => {
   const config = { employees: EMPLOYEES, durationMinutes: 60, granularityMinutes: 30 };
 
   it("devuelve [] cuando el día está cerrado", () => {
-    expect(computeDayAvailability([], ["peluqueria"], null, config)).toEqual([]);
+    expect(computeDayAvailability([], ["peluqueria"], null, 1, config)).toEqual([]);
   });
 
   it("descarta slots anteriores a `nowMinutes` (día de hoy)", () => {
@@ -165,6 +169,7 @@ describe("computeDayAvailability", () => {
       [],
       ["peluqueria"],
       { open: "09:00", close: "12:00" },
+      1,
       config,
       600, // 10:00
     );
@@ -230,5 +235,51 @@ describe("pickEmployeeForBooking", () => {
 
   it("devuelve null si no hay ninguna libre", () => {
     expect(pickEmployeeForBooking([], EMPLOYEES)).toBeNull();
+  });
+});
+
+describe("anyEmployeeCoversAllSkills", () => {
+  it("true si alguna empleada tiene todas las habilidades pedidas", () => {
+    expect(anyEmployeeCoversAllSkills(EMPLOYEES, ["peluqueria", "unas"])).toBe(true); // bea
+  });
+
+  it("false si ninguna empleada individual cubre la combinación", () => {
+    // ana: solo peluqueria, cami: solo unas -> sin bea, nadie cubre ambas.
+    const soloEspecialistas = EMPLOYEES.filter((e) => e.id !== "bea");
+    expect(anyEmployeeCoversAllSkills(soloEspecialistas, ["peluqueria", "unas"])).toBe(false);
+  });
+});
+
+describe("computeSequentialDayAvailability (turno combinado con dos empleadas)", () => {
+  // Solo ana (peluqueria) y cami (unas): nadie cubre las dos habilidades sola,
+  // así que el turno se arma como dos tramos consecutivos.
+  const soloEspecialistas = EMPLOYEES.filter((e) => e.id !== "bea");
+  const legs = [
+    { skill: "peluqueria" as const, durationMinutes: 30 },
+    { skill: "unas" as const, durationMinutes: 30 },
+  ];
+  const hours = { open: "09:00", close: "11:00" };
+
+  it("arma tramos consecutivos, uno por habilidad, con la empleada correspondiente libre", () => {
+    const slots = computeSequentialDayAvailability([], legs, hours, 1, soloEspecialistas, 30);
+    const first = slots.find((s) => s.startMinutes === 9 * 60);
+    expect(first?.available).toBe(true);
+    expect(first?.legs).toEqual([
+      { skill: "peluqueria", durationMinutes: 30, startMinutes: 540, endMinutes: 570, freeEmployeeIds: ["ana"] },
+      { skill: "unas", durationMinutes: 30, startMinutes: 570, endMinutes: 600, freeEmployeeIds: ["cami"] },
+    ]);
+  });
+
+  it("marca no disponible si la empleada del primer tramo está ocupada, aunque la del segundo esté libre", () => {
+    const events: NormalizedEvent[] = [
+      { startMinutes: 540, endMinutes: 600, employeeId: "ana", blocksAllDay: false }, // ana ocupada 9-10
+    ];
+    const slots = computeSequentialDayAvailability(events, legs, hours, 1, soloEspecialistas, 30);
+    const at9 = slots.find((s) => s.startMinutes === 540);
+    const at930 = slots.find((s) => s.startMinutes === 570);
+    const at10 = slots.find((s) => s.startMinutes === 600);
+    expect(at9?.available).toBe(false);
+    expect(at930?.available).toBe(false); // el tramo de ana (9:30-10:00) sigue solapando su ocupación
+    expect(at10?.available).toBe(true); // recién a las 10 ana está libre
   });
 });

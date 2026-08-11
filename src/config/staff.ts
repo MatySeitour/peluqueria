@@ -1,24 +1,29 @@
 // Config compartida entre el frontend (Vite) y las funciones serverless (/api).
 // No importar nada de React/DOM/Node acá para que sea usable desde ambos lados.
 
-export type EmployeeSkill = "peluqueria" | "unas" | "estetica";
-
-export const SKILL_LABELS: Record<EmployeeSkill, string> = {
-  peluqueria: "Peluquería",
-  unas: "Uñas",
-  estetica: "Estética",
-};
+export type { EmployeeSkill, Product, ServiceCategoryDef, ServiceGroup, ServiceVariant } from "./catalog";
+export { CATALOG, PRODUCTS, SKILL_LABELS } from "./catalog";
+import type { EmployeeSkill } from "./catalog";
 
 export interface Employee {
   /** Slug estable, se guarda en los eventos de Calendar. No renombrar una vez que haya reservas creadas. */
   id: string;
   name: string;
   skills: EmployeeSkill[];
+  /** Días que trabaja, 0 = domingo ... 6 = sábado (mismo formato que BusinessHours). */
+  workDays: (0 | 1 | 2 | 3 | 4 | 5 | 6)[];
+  /**
+   * colorId de Google Calendar para distinguir a cada empleada dentro del mismo
+   * calendario compartido (ver https://developers.google.com/calendar/api/v3/reference/colors/get).
+   * 1 Lavanda, 2 Salvia, 3 Uva, 4 Flamenco, 5 Banana, 6 Mandarina, 7 Pavo real,
+   * 8 Grafito, 9 Arándano, 10 Albahaca, 11 Tomate.
+   */
+  calendarColorId: string;
 }
 
 export interface DayHours {
-  open: string; // "HH:mm"
-  close: string; // "HH:mm"
+  open: string; // "09:30"
+  close: string; // "19:00"
 }
 
 // 0 = domingo ... 6 = sábado (Date.getDay())
@@ -42,58 +47,10 @@ export const BUSINESS_HOURS: BusinessHours = {
   6: { open: "09:30", close: "19:00" },
 };
 
-// TODO: reemplazar por el plantel real y quién hace qué.
 export const EMPLOYEES: Employee[] = [
-  { id: "empleada-1", name: "Empleada 1", skills: ["peluqueria", "unas", "estetica"] },
-  { id: "empleada-2", name: "Empleada 2", skills: ["peluqueria"] },
-  { id: "empleada-3", name: "Empleada 3", skills: ["peluqueria", "estetica"] },
-  { id: "empleada-4", name: "Empleada 4", skills: ["unas"] },
-  { id: "empleada-5", name: "Empleada 5", skills: ["peluqueria", "unas"] },
+  { id: "gloria", name: "Gloria", skills: ["peluqueria"], workDays: [2, 3, 4, 5, 6], calendarColorId: "9" },
+  { id: "silvia", name: "Silvia", skills: ["peluqueria"], workDays: [1, 3, 4, 5, 6], calendarColorId: "5" },
+  { id: "micaela", name: "Micaela", skills: ["unas", "estetica"], workDays: [2, 3, 4, 5, 6], calendarColorId: "10" },
+  { id: "sofia", name: "Sofia", skills: ["unas", "estetica"], workDays: [4, 5, 6], calendarColorId: "6" },
 ];
 
-export interface Product {
-  id: string;
-  /** Nombre a mostrar al cliente (coincide con los encabezados de /servicios). */
-  name: string;
-  /** Habilidad que necesita la empleada para poder hacer este producto. */
-  skill: EmployeeSkill;
-  /** TODO: reemplazar por el tiempo real que lleva cada servicio. Son estimaciones de arranque. */
-  durationMinutes: number;
-}
-
-// Un producto por cada encabezado de /servicios (no se baja al detalle de cada
-// marca/largo de pelo, que son variantes de precio, no de tiempo de reserva).
-export const PRODUCTS: Product[] = [
-  // Peluquería
-  { id: "lavado", name: "Lavado", skill: "peluqueria", durationMinutes: 20 },
-  { id: "nutriciones", name: "Nutriciones", skill: "peluqueria", durationMinutes: 30 },
-  { id: "ampollas", name: "Ampollas", skill: "peluqueria", durationMinutes: 20 },
-  { id: "tratamientos-capilares", name: "Tratamientos capilares", skill: "peluqueria", durationMinutes: 45 },
-  { id: "keratina", name: "Keratina", skill: "peluqueria", durationMinutes: 150 },
-  { id: "alisados", name: "Alisados", skill: "peluqueria", durationMinutes: 150 },
-  { id: "botox-capilar", name: "Botox capilar", skill: "peluqueria", durationMinutes: 90 },
-  { id: "cortes", name: "Cortes", skill: "peluqueria", durationMinutes: 45 },
-  { id: "brushing", name: "Brushing", skill: "peluqueria", durationMinutes: 40 },
-  { id: "secado-modelado", name: "Secado modelado", skill: "peluqueria", durationMinutes: 30 },
-  { id: "ondas", name: "Ondas", skill: "peluqueria", durationMinutes: 45 },
-  { id: "peinados", name: "Peinados", skill: "peluqueria", durationMinutes: 60 },
-  { id: "coloracion", name: "Coloración", skill: "peluqueria", durationMinutes: 90 },
-  { id: "mechas-localizadas", name: "Mechas localizadas", skill: "peluqueria", durationMinutes: 150 },
-  { id: "reflejos-con-gorra", name: "Reflejos con gorra", skill: "peluqueria", durationMinutes: 120 },
-  { id: "balayage", name: "Balayage", skill: "peluqueria", durationMinutes: 150 },
-  { id: "decoloracion", name: "Decoloración", skill: "peluqueria", durationMinutes: 120 },
-
-  // Uñas
-  { id: "manos", name: "Manos", skill: "unas", durationMinutes: 45 },
-  { id: "pies", name: "Pies", skill: "unas", durationMinutes: 45 },
-  { id: "nail-art", name: "Diseño Nail Art", skill: "unas", durationMinutes: 20 },
-  { id: "tratamientos-pedicura", name: "Tratamientos pedicura", skill: "unas", durationMinutes: 45 },
-
-  // Estética
-  { id: "depilacion-hombre", name: "Depilación hombre", skill: "estetica", durationMinutes: 30 },
-  { id: "depilacion-mujer-rostro", name: "Depilación mujer · Rostro", skill: "estetica", durationMinutes: 20 },
-  { id: "depilacion-mujer-torso", name: "Depilación mujer · Torso", skill: "estetica", durationMinutes: 30 },
-  { id: "depilacion-mujer-piernas", name: "Depilación mujer · Brazos/piernas/pelvis", skill: "estetica", durationMinutes: 40 },
-  { id: "cejas", name: "Cejas", skill: "estetica", durationMinutes: 20 },
-  { id: "pestanas", name: "Pestañas", skill: "estetica", durationMinutes: 45 },
-];

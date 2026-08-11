@@ -14,13 +14,29 @@ function App() {
       <main className="bg-third/40 h-full w-full">
         <Nav />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/servicios" element={<Service />} />
+          <Route
+            path="/"
+            element={
+              <>
+                <Home />
+                <PaymentMethods />
+                <GridImages />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/servicios"
+            element={
+              <>
+                <Service />
+                <Footer />
+              </>
+            }
+          />
+          {/* Apartado propio: sin el resto de la web (footer, medios de pago, galería) mezclado. */}
           <Route path="/reservar" element={<Booking />} />
         </Routes>
-        <PaymentMethods />
-        <GridImages />
-        <Footer />
       </main>
     </Router>
   );

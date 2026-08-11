@@ -6,6 +6,7 @@ import { SiMercadopago } from "react-icons/si";
 import { mqs, useMediaQueries } from "../utils/functions";
 import { BiSolidOffer } from "react-icons/bi";
 import { BsCalendar4Week } from "react-icons/bs";
+import { Link } from "react-router-dom";
 import { appearTop, containerObserverAnimation } from "../utils/animations";
 
 export default function PaymentMethods() {
@@ -135,14 +136,14 @@ export default function PaymentMethods() {
               </div>
             </div>
             <div className="flex h-full w-full items-center sm:w-fit">
-              <a
-                target="_blank"
-                href="https://api.whatsapp.com/send?phone=541127210827&text=hola%F0%9F%91%8B%20quiero%20solicitar%20un%20turno!%20"
-                className="bg-primary hover:bg-primary/90 flex w-full min-w-36 cursor-pointer items-center justify-center gap-2 rounded-full px-4 py-2 text-xs font-medium text-nowrap text-white transition-colors sm:w-fit"
+              <Link
+                to="/reservar"
+                onClick={() => window.scrollTo({ top: 0 })}
+                className="font-nav bg-primary hover:bg-primary/90 flex w-full min-w-36 cursor-pointer items-center justify-center gap-2 rounded-full px-4 py-2 text-xs font-medium text-nowrap text-white transition-colors sm:w-fit"
               >
                 <BsCalendar4Week className="size-4 min-w-4 text-white" />
                 Solicitar turno
-              </a>
+              </Link>
             </div>
           </motion.div>
           <motion.p
